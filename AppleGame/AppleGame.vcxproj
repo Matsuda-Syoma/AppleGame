@@ -154,6 +154,7 @@
     <ClInclude Include="ヘッダー.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="ソース.cpp" />
   </ItemGroup>
