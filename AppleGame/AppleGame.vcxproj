@@ -22,7 +22,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a9d3691d-89d3-440e-94df-982e394f391c}</ProjectGuid>
+    <ProjectGuid>{10c1689e-e184-41ff-95c2-e118c61145ae}</ProjectGuid>
     <RootNamespace>AppleGame</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
