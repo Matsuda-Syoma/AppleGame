@@ -151,11 +151,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ヘッダー.h" />
+    <ClInclude Include="apple.h" />
+    <ClInclude Include="loadimages.h" />
+    <ClInclude Include="prototype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Apple.cpp" />
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="LoadImages.cpp" />
     <ClCompile Include="ソース.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
