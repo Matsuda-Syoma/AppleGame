@@ -24,6 +24,9 @@
     <ClInclude Include="prototype.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="variable.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ソース.cpp">
@@ -36,6 +39,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="LoadImages.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="hitbox.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

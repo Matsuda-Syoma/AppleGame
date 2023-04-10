@@ -5,7 +5,7 @@
 extern int gAppleImg[4];
 
 struct APPLE gApple[APPLE_MAX];
-struct APPLE gApple00 = { true,0,0,0,10,63,63,0,1 };
+struct APPLE gApple00 = { true,0,0,0,10,55,55,0,1 };
 float gAppleSpeed[4] = { 1.0f,2.0f,3.5f,0.5f };
 int gAppleScore[4] = { 100,200,500,-750 };
 
@@ -33,6 +33,15 @@ void AppleControl(void) {
 			//	gEnemy[i].flg = false;
 			//	if (gPlayer.hp <= 0)gGameMode = GAMEOVER;
 			//}
+
+			int dx1 = gApple[i].x - (gApple[i].w / 2);
+			int dy1 = gApple[i].y - (gApple[i].h/ 2);
+			int dx2 = dx1 + gApple[i].w;
+			int dy2 = dy1 + gApple[i].h;
+
+			DrawBox(dx1, dy1, dx2, dy2, 0xffffff, false);
+
+
 		}
 	}
 
@@ -56,6 +65,13 @@ int CreateApple(void) {
 			gApple[i].x = GetRand(6) * 70 + 40;//Å‘å420 + 40
 			gApple[i].speed = gAppleSpeed[gApple[i].type];
 			gApple[i].score = gAppleScore[gApple[i].type];
+			if (gApple[i].type == 3) {
+				gApple[i].w = gApple[i].w * 0.9f;
+				gApple[i].h = gApple[i].h * 0.9f;
+			} else {
+				gApple[i].w = gApple[i].w * 1.1;
+				gApple[i].h = gApple[i].h * 1.1;
+			}
 
 			//¬Œ÷
 			return true;
