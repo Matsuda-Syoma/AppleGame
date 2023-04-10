@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "apple.h"
 #include "prototype.h"
+#include "variable.h"
 
 extern int gAppleImg[4];
 
@@ -23,7 +24,10 @@ void AppleControl(void) {
 			gApple[i].y += gApple[i].speed;
 
 			//‰æ–Ê‚ð‚Í‚Ýo‚µ‚½‚çÁ‹Ž
-			if (gApple[i].y > 1000)gApple[i].flg = false;
+			if (gApple[i].y > 1000) {
+				gAppleCount[gApple[i].type] ++;
+				gApple[i].flg = false;
+			}
 
 			////“–‚½‚è”»’è
 			//if (HitBoxPlayer(&gPlayer, &gEnemy[i]) == true && gPlayer.baricnt <= 0) {
@@ -69,8 +73,8 @@ int CreateApple(void) {
 				gApple[i].w = gApple[i].w * 0.9f;
 				gApple[i].h = gApple[i].h * 0.9f;
 			} else {
-				gApple[i].w = gApple[i].w * 1.1;
-				gApple[i].h = gApple[i].h * 1.1;
+				gApple[i].w = gApple[i].w * 1.1f;
+				gApple[i].h = gApple[i].h * 1.1f;
 			}
 
 			//¬Œ÷

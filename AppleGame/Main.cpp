@@ -1,8 +1,15 @@
 #include "DxLib.h"
 #include"prototype.h"
 #include "variable.h"
+#include "define.h"
+
+mode gGameMode = INIT;
 
 extern int gStageImg;
+extern int gAppleImg[4];
+
+
+int gAppleCount[4];
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow) {
 
@@ -29,14 +36,40 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		//âÊñ ÇÃèâä˙âª
 		ClearDrawScreen();
 
-		DrawGraph(0, 0, gStageImg, false);
+		switch (gGameMode) {
 
-		AppleControl();
+		case TITLE:
 
-		DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ffff, true);
-		for (int i = 0; i < 4; i++) {
-			//DrawRotaGraph(230, 230, 0.3f, M_PI / 2, gApple[i], true, false);
-			DrawFormatString(540, 200 + 40 * i, 0x000000, "%6d", gAppleCount[i]);
+			break;
+
+		case INIT:
+			GameInit();
+			break;
+
+		case MAIN:
+			DrawGame();
+			break;
+
+		case RANKING:
+			
+			break;
+
+		case HELP:
+			
+			break;
+
+		case INPUTNAME:
+			
+			break;
+
+		case GAMEOVER:
+			
+			break;
+
+		case END:
+			
+			break;
+
 		}
 
 		//ó†âÊñ ÇÃì‡óeÇï\Ç…ï\é¶Ç∑ÇÈ
