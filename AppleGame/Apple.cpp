@@ -6,8 +6,8 @@ extern int gAppleImg[4];
 
 struct APPLE gApple[APPLE_MAX];
 struct APPLE gApple00 = { true,0,0,0,10,63,63,0,1 };
-int gAppleSpeed[4] = { 1,2,2,1 };
-int gAppleScore[4] = { 10,20,40,-20 };
+float gAppleSpeed[4] = { 1.0f,2.0f,3.5f,0.5f };
+int gAppleScore[4] = { 100,200,500,-750 };
 
 void AppleControl(void) {
 
@@ -23,7 +23,7 @@ void AppleControl(void) {
 			gApple[i].y += gApple[i].speed;
 
 			//‰æ–Ê‚ð‚Í‚Ýo‚µ‚½‚çÁ‹Ž
-			if (gApple[i].y > SCREEN_HEIGHT + gApple[i].h)gApple[i].flg = false;
+			if (gApple[i].y > 1000)gApple[i].flg = false;
 
 			////“–‚½‚è”»’è
 			//if (HitBoxPlayer(&gPlayer, &gEnemy[i]) == true && gPlayer.baricnt <= 0) {
@@ -54,7 +54,7 @@ int CreateApple(void) {
 			gApple[i].img = gAppleImg[gApple[i].type];
 			//gApple[i].img = gAppleImg;
 			gApple[i].x = GetRand(6) * 70 + 40;//Å‘å420 + 40
-			gApple[i].speed = 0;// gAppleSpeed[gApple[i].type];
+			gApple[i].speed = gAppleSpeed[gApple[i].type];
 			gApple[i].score = gAppleScore[gApple[i].type];
 
 			//¬Œ÷
