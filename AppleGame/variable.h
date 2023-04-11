@@ -15,8 +15,7 @@ extern enum mode {
 };
 
 extern int gScore;		//スコア
-extern int gDrawScore;		//スコア表示
-extern int gDrawGameTime;	//ゲーム時間表示
+extern int gGameTime;	//ゲーム時間表示
 extern int gAppleCount[4];
 
 extern int gAppleImg[4];

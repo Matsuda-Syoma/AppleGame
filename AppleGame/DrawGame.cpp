@@ -3,6 +3,9 @@
 #include "variable.h"
 #include "define.h"
 
+int gGameFlameCount;
+int gGameTime;
+
 void DrawGame(void) {
 	DrawGraph(0, 0, gStageImg, false);
 
@@ -10,7 +13,11 @@ void DrawGame(void) {
 
 	DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ffff, true);
 
-	DrawFormatString(580, 100, 0x000000, "x%3d", gAppleCount[i]);
+	if (++gGameFlameCount > 28) {
+		gGameTime--;
+		gGameFlameCount = 0;
+	}
+	DrawFormatString(560, 100, 0x000000, "%3d", gGameTime);
 
 
 	SetFontSize(24);
