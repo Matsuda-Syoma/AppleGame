@@ -9,6 +9,10 @@ void DrawGame(void) {
 	AppleControl();
 
 	DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ffff, true);
+
+	DrawFormatString(580, 100, 0x000000, "x%3d", gAppleCount[i]);
+
+
 	SetFontSize(24);
 	DrawString(520, 160, "å¬êî", 0x000000);
 	SetFontSize(16);
