@@ -5,9 +5,15 @@
 
 int gGameFlameCount;
 int gGameTime;
+int gScore;
+extern mode gGameMode;
 
 void DrawGame(void) {
 	DrawGraph(0, 0, gStageImg, false);
+
+	if (gGameTime < 1) {
+		gGameMode = GAMEOVER;
+	}
 
 	AppleControl();
 
@@ -17,7 +23,9 @@ void DrawGame(void) {
 		gGameTime--;
 		gGameFlameCount = 0;
 	}
-	DrawFormatString(560, 100, 0x000000, "%3d", gGameTime);
+	DrawFormatString(520, 40, 0x000000, "Time:%-3d", gGameTime);
+
+	DrawFormatString(520, 80, 0x000000, "Score:%--6d", gScore);
 
 
 	SetFontSize(24);

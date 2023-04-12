@@ -30,12 +30,9 @@ void AppleControl(void) {
 			}
 
 			////“–‚½‚è”»’è
-			//if (HitBoxPlayer(&gPlayer, &gEnemy[i]) == true && gPlayer.baricnt <= 0) {
+			//if (HitBoxPlayer(&gPlayer, &gEnemy[i]) == true) {
 			//	gPlayer.flg = false;
-			//	gPlayer.count = 0;
-			//	gPlayer.hp -= 100;
 			//	gEnemy[i].flg = false;
-			//	if (gPlayer.hp <= 0)gGameMode = GAMEOVER;
 			//}
 
 			int dx1 = gApple[i].x - (gApple[i].w / 2);

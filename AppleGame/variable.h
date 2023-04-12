@@ -2,7 +2,7 @@
 #define VARIABLE_H
 
 /*—ñ‹“Œ^‚ÌéŒ¾*/
-extern enum mode {
+enum mode {
 	TITLE,
 	INIT,
 	MAIN,
