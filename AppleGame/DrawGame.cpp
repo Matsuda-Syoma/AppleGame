@@ -11,11 +11,14 @@ extern mode gGameMode;
 void DrawGame(void) {
 	DrawGraph(0, 0, gStageImg, false);
 
-	if (gGameTime < 1) {
-		gGameMode = GAMEOVER;
-	}
+	//if (gGameTime < 1) {
+	//	gGameMode = GAMEOVER;
+	//}
 
 	AppleControl();
+
+	//ƒvƒŒƒCƒ„[§Œä
+	PlayerControl();
 
 	DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ffff, true);
 

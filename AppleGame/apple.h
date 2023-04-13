@@ -3,16 +3,7 @@
 
 #define APPLE_MAX 10
 
-//リンゴの構造体
 
-struct APPLE {
-	int flg;		//使用フラグ
-	int type;		//タイプ
-	int img;		//画像
-	float x, y, w, h;	//座標、幅、高さ
-	float speed;		//移動速度
-	int score;		//スコア
-};
 
 
 #endif

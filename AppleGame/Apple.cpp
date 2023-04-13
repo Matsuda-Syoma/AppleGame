@@ -4,6 +4,7 @@
 #include "variable.h"
 
 extern int gAppleImg[4];
+extern struct PLAYER gPlayer;
 
 struct APPLE gApple[APPLE_MAX];
 struct APPLE gApple00 = { true,0,0,0,10,55,55,0,1 };
@@ -30,17 +31,17 @@ void AppleControl(void) {
 			}
 
 			////“–‚½‚è”»’è
-			//if (HitBoxPlayer(&gPlayer, &gEnemy[i]) == true) {
-			//	gPlayer.flg = false;
-			//	gEnemy[i].flg = false;
-			//}
+			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true) {
+				/*gPlayer.flg = false;*/
+				gApple[i].flg = false;
+			}
 
-			int dx1 = gApple[i].x - (gApple[i].w / 2);
-			int dy1 = gApple[i].y - (gApple[i].h/ 2);
-			int dx2 = dx1 + gApple[i].w;
-			int dy2 = dy1 + gApple[i].h;
+			//int dx1 = gApple[i].x - (gApple[i].w / 2);
+			//int dy1 = gApple[i].y - (gApple[i].h/ 2);
+			//int dx2 = dx1 + gApple[i].w;
+			//int dy2 = dy1 + gApple[i].h;
 
-			DrawBox(dx1, dy1, dx2, dy2, 0xffffff, false);
+			//DrawBox(dx1, dy1, dx2, dy2, 0xffffff, false);
 
 
 		}

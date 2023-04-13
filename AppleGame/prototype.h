@@ -15,6 +15,7 @@ int LoadImages(void);
 void GameInit(void);
 void DrawGame(void);
 int HitBoxPlayer(PLAYER* p, APPLE* e);
+void PlayerControl(void);
 //int HitBoxPlayer(APPLE* a);
 
 #endif
