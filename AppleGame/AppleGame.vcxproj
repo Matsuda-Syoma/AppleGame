@@ -154,6 +154,7 @@
     <ClInclude Include="ヘッダー.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sound.cpp" />
     <ClCompile Include="ソース.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
