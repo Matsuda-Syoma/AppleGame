@@ -151,7 +151,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Apple.cpp" />
+    <ClCompile Include="DrawGame.cpp" />
+    <ClCompile Include="GameInit.cpp" />
+    <ClCompile Include="hitbox.cpp" />
+    <ClCompile Include="LoadImages.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="sound.cpp" />
+    <ClCompile Include="title.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="apple.h" />
+    <ClInclude Include="define.h" />
+    <ClInclude Include="loadimages.h" />
+    <ClInclude Include="prototype.h" />
+    <ClInclude Include="variable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
