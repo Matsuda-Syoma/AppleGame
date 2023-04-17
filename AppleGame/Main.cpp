@@ -55,7 +55,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		case MAIN:
 			DrawGame();
-			DrawFormatString(100, 100, 0x000000, "x%3d", gNowKey);
 			break;
 
 		case RANKING:

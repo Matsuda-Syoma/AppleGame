@@ -26,22 +26,16 @@ void AppleControl(void) {
 
 			//‰æ–Ê‚ð‚Í‚Ýo‚µ‚½‚çÁ‹Ž
 			if (gApple[i].y > 1000) {
-				gAppleCount[gApple[i].type] ++;
 				gApple[i].flg = false;
 			}
 
 			////“–‚½‚è”»’è
 			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true) {
 				/*gPlayer.flg = false;*/
+				gAppleCount[gApple[i].type] ++;
+				gScore += gAppleScore[gApple[i].type];
 				gApple[i].flg = false;
 			}
-
-			//int dx1 = gApple[i].x - (gApple[i].w / 2);
-			//int dy1 = gApple[i].y - (gApple[i].h/ 2);
-			//int dx2 = dx1 + gApple[i].w;
-			//int dy2 = dy1 + gApple[i].h;
-
-			//DrawBox(dx1, dy1, dx2, dy2, 0xffffff, false);
 
 
 		}

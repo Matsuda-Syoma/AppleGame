@@ -11,9 +11,26 @@ struct PLAYER gPlayer;
 
 void PlayerControl(void) {
 
-	//ã‰º¶‰E‚ÌˆÚ“®
+	//¶‰E‚ÌˆÚ“®
 	if (gPlayer.flg == true) {
-		if (gNowKey & PAD_INPUT_LEFT)gPlayer.x -= gPlayer.speed;
-		if (gNowKey & PAD_INPUT_RIGHT)gPlayer.x += gPlayer.speed;
+
+		gPlayer.x += gPlayer.speed;
+
+		if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 1.0f){
+
+			gPlayer.speed += 0.01f;
+
+		}
+		else if(gPlayer.speed > 0.01f) {
+			gPlayer.speed -= 0.01f;
+		}
+		DrawFormatString(100, 100, 0x000000, "x%d", gPlayer.speed);
+
+		if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -1.0f) {
+			gPlayer.speed -= 0.01f;
+		}
+		else if (gPlayer.speed < -0.01f) {
+			gPlayer.speed += 0.01f;
+		}
 	}
 }
