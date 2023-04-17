@@ -10,6 +10,7 @@ void DrawGame(void) {
 	DrawGraph(0, 0, gStageImg, false);
 
 	AppleControl();
+	PlayerControl();
 
 	DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ffff, true);
 

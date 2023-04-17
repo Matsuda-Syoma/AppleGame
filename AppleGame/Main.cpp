@@ -7,7 +7,7 @@ mode gGameMode = INIT;
 
 extern int gStageImg;
 extern int gAppleImg[4];
-
+extern int gPlayerImg[12];
 
 int gAppleCount[4];
 
