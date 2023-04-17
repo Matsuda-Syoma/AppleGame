@@ -166,7 +166,7 @@
     <ClCompile Include="hitbox.cpp" />
     <ClCompile Include="LoadImages.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="ソース.cpp" />
+    <ClCompile Include="sound.cpp" />
     <ClCompile Include="title.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
