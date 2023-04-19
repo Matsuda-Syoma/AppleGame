@@ -18,7 +18,7 @@ int LoadSound(void)
 	//ステージBGMの読込
 	if ((gStageBGM = LoadSoundMem("sounds/MusMus-BGM-087.wav")) == -1) return -1;
 	//ゲームオーバーSEの読込
-	if ((gGameOverSE = LoadSoundMem("")) == -1) return -1;
+	if ((gGameOverSE = LoadSoundMem("sounds/MusMus-JGL-010b.wav")) == -1) return -1;
 	//効果音１(メニューカーソル移動)の読込
 	if ((gSEmenu1 = LoadSoundMem("sounds/cursor_idou.wav")) == -1) return -1;
 	//効果音２(メニュー決定)の読込
