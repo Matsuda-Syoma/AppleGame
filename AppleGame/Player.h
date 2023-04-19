@@ -5,11 +5,8 @@
 //\‘¢‘Ì
 struct PLAYER {
 	int flg;
-	float x=300.0f, y=448.0f;
-	int w, h;
+	float x, y, w, h;
 	int speed;
 };
-//•Ï”éŒ¾
-struct PLAYER gPlayer;
 
 #endif
