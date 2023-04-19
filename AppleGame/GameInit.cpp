@@ -14,7 +14,7 @@ void GameInit(void) {
 	gPlayer.flg = true;
 	gPlayer.x = 0;
 	gPlayer.y = 400;
-	gPlayer.w = 90;
+	gPlayer.w = 64;
 	gPlayer.h = 90;
 	gPlayer.speed = 0;
 	gGameTime = GAMETIME;
