@@ -15,13 +15,13 @@ void DrawGame(void) {
 	//	gGameMode = GAMEOVER;
 	//}
 
+	DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ffff, true);
+
 	AppleControl();
 	PlayerControl();
 
-	//ƒvƒŒƒCƒ„[§Œä
-	PlayerControl();
 
-	DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ffff, true);
+
 
 	if (++gGameFlameCount > 28) {
 		gGameTime--;

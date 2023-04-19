@@ -23,6 +23,8 @@ void PlayerControl(void)
 {
 	extern int gPlayerImg[12];
 
+	DrawFormatString(520, 400, 0x000000, "speed %f", gPlayer.speed);
+
 	//ˆÚ“®
 	if (gPlayer.flg == true) {
 		//¶ˆÚ“®
