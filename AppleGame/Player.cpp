@@ -10,9 +10,6 @@ extern int gKeyFlg;
 int count = 0;
 int key[256];
 int ix = 0, gh = 0;
-float move = 2;
-int i;
-float fsin[360], fcos[360], mv = 0.1f;
 
 //ïœêîêÈåæ
 struct PLAYER gPlayer;
@@ -26,28 +23,45 @@ void PlayerControl(void)
 {
 	extern int gPlayerImg[12];
 
-	gOldKey = gNowKey;
-	gNowKey = GetJoypadInputState(DX_INPUT_KEY_PAD1);
-	gKeyFlg = gNowKey & ~gOldKey;
-
-	gPlayer.speed = move;
-
 	//à⁄ìÆ
 	if (gPlayer.flg == true) {
 		//ç∂à⁄ìÆ
-		if (gNowKey & PAD_INPUT_LEFT)gPlayer.x -= gPlayer.speed;
+		/*if (gNowKey & PAD_INPUT_LEFT)gPlayer.x -= gPlayer.speed;*/
+
+		gPlayer.x += gPlayer.speed;
+
+		if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 1.0f) {
+
+			gPlayer.speed += 0.01f;
+
+		}
+
+
 		if (gNowKey & PAD_INPUT_LEFT) {
 			if (count > 0)
 				count = 0;
 			--count;
 		}
 		//âEà⁄ìÆ
-		if (gNowKey & PAD_INPUT_RIGHT)gPlayer.x += gPlayer.speed;
+		//if (gNowKey & PAD_INPUT_RIGHT)gPlayer.x += gPlayer.speed;
+
+		else if (gPlayer.speed > 0.01f) {
+			gPlayer.speed -= 0.01f;
+		}
+
 		if (gNowKey & PAD_INPUT_RIGHT) {
 			if (count < 0)
 				count = 0;
 			++count;
 		}
+
+		if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -1.0f) {
+			gPlayer.speed -= 0.01f;
+		}
+		else if (gPlayer.speed < -0.01f) {
+			gPlayer.speed += 0.01f;
+		}
+
 	}
 
 	//âÊñ ÇÇÕÇ›èoÇ≥Ç»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
