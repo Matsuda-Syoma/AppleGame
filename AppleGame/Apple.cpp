@@ -3,7 +3,7 @@
 #include "prototype.h"
 #include "variable.h"
 
-extern int gAppleImg[4];
+int gAppleImg[4];
 extern struct PLAYER gPlayer;
 
 struct APPLE gApple[APPLE_MAX];
