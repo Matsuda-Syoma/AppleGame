@@ -5,7 +5,7 @@
 //\‘¢‘Ì
 struct PLAYER {
 	int flg;
-	int x=300, y=480-32;
+	float x=300.0f, y=448.0f;
 	int w, h;
 	int speed;
 };

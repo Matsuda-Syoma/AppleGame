@@ -7,31 +7,38 @@ int gOldKey;
 int gNowKey;
 int gKeyFlg;
 
+int count=0;
+int key[256];
+int ix = 0, gh = 0;
+float move =2;
+int i;
+float fsin[360], fcos[360],mv=0.1f;
 
+//for (i = 0; i < 360; i++) {
+//	fsin[i] = (float)sin(i * 3.1415926535 / 180);
+//	fcos[i] = (float)cos(i * 3.1415926535 / 180);
+//}
 
 void PlayerControl(void)
 {
 	extern int gPlayerImg[12];
-	
-	int count=0;
-	int key[256];
-	int ix = 0, gh = 0;
 
 	 gOldKey = gNowKey;
 	 gNowKey = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	 gKeyFlg = gNowKey & ~gOldKey;
 
-	 float move =2;
 	 gPlayer.speed = move;
 
 	 //ˆÚ“®
 	if (gPlayer.flg == true) {
+		//¶ˆÚ“®
 		if (gNowKey & PAD_INPUT_LEFT)gPlayer.x -= gPlayer.speed;
 		if (gNowKey & PAD_INPUT_LEFT) {
 			if (count > 0)
 				count = 0;
 				--count;
 		}
+		//‰EˆÚ“®
 		if (gNowKey & PAD_INPUT_RIGHT)gPlayer.x += gPlayer.speed;
 		if (gNowKey & PAD_INPUT_RIGHT) {
 			if (count < 0)
@@ -61,19 +68,19 @@ void PlayerControl(void)
 	
 	//•`‰æ
 	if (gPlayer.flg = true) {
-		//¶ˆÚ“®
+		//¶ˆÚ“®•`‰æ
 		if (gNowKey & PAD_INPUT_LEFT) {
 			DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
 		}
-		//‰EˆÚ“®
+		//‰EˆÚ“®•`‰æ
 		else if (gNowKey & PAD_INPUT_RIGHT) {
 		DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
 		}
 		else {
+			//“®‚¢‚Ä‚¢‚È‚¢‚Æ‚«‚Í³–Ê‚ÉŒü‚¯‚é
 			DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[1], TRUE, FALSE);
-		}
-		if (key[PAD_INPUT_LEFT] != 1 && key[PAD_INPUT_RIGHT] != 1) {
 			count = 0;
 		}
+		
 	}
 }
