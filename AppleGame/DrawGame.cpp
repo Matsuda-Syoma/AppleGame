@@ -11,7 +11,7 @@ bool Pause;
 
 void DrawGame(void) {
 
-	PlaySoundMem(gStageBGM, DX_PLAYTYPE_BACK, false);
+
 
 	DrawGraph(0, 0, gStageImg, false);
 
