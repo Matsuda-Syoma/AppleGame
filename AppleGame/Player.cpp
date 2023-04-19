@@ -82,9 +82,7 @@ void PlayerControl(void)
 
 	//âÊñ ÇÇÕÇ›èoÇ≥Ç»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
 	if (gPlayer.x < 32)gPlayer.x = 32;
-	if (gPlayer.x > SCREEN_WIDTH - 180)gPlayer.x = SCREEN_WIDTH - 180;
-	if (gPlayer.y < 60)gPlayer.y = 60;
-	if (gPlayer.y > SCREEN_HEIGHT - 60)gPlayer.y = SCREEN_HEIGHT - 60;
+	if (gPlayer.x > 468)gPlayer.x = 468;
 
 	//ix = abs(count) % 30 / 10;
 
