@@ -167,6 +167,7 @@
     <ClCompile Include="LoadImages.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player_m.cpp" />
+    <ClCompile Include="sound.cpp" />
     <ClCompile Include="title.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
