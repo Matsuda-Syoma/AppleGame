@@ -16,6 +16,7 @@ void DrawGame(void) {
 	//}
 
 	AppleControl();
+	PlayerControl();
 
 	//ƒvƒŒƒCƒ„[§Œä
 	PlayerControl();
