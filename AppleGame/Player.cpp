@@ -37,6 +37,9 @@ void PlayerControl(void)
 			gPlayer.speed += 0.01f;
 
 		}
+		else if (gPlayer.speed > 0.01f) {
+			gPlayer.speed -= 0.01f;
+		}
 
 
 		if (gNowKey & PAD_INPUT_LEFT) {
@@ -47,9 +50,6 @@ void PlayerControl(void)
 		//‰EˆÚ“®
 		//if (gNowKey & PAD_INPUT_RIGHT)gPlayer.x += gPlayer.speed;
 
-		else if (gPlayer.speed > 0.01f) {
-			gPlayer.speed -= 0.01f;
-		}
 
 		if (gNowKey & PAD_INPUT_RIGHT) {
 			if (count < 0)

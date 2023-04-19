@@ -6,7 +6,7 @@
 struct PLAYER {
 	int flg;
 	float x, y, w, h;
-	int speed;
+	float speed;
 };
 
 #endif
