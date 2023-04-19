@@ -11,7 +11,7 @@ int gSEapple1;				//Œø‰Ê‰¹‚è‚ñ‚²1(’Êí‚è‚ñ‚²)
 int gSEapple2;				//Œø‰Ê‰¹‚è‚ñ‚²2(“Å‚è‚ñ‚²)
 
 
-int LoadSound(void) 
+int LoadSound(void)
 {
 	//ƒ^ƒCƒgƒ‹BGM‚Ì“Ç
 	if ((gTitleBGM = LoadSoundMem("sounds/hinatabokko.wav")) == -1) return -1;

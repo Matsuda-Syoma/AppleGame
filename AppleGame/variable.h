@@ -39,6 +39,8 @@ extern int gScore;		//スコア
 extern int gGameTime;	//ゲーム時間表示
 extern int gAppleCount[4];
 
+extern int gTitleImg; //タイトル画像
+
 extern int gAppleImg[4];
 extern int gStageImg;
 
