@@ -35,7 +35,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	if (LoadSound() == -1)return -1;
 
 	//ƒQ[ƒ€ƒ‹[ƒv
-	while (ProcessMessage() == 0) {
+	while (ProcessMessage() == 0 && gGameMode != CLOSE) {
 
 		//“ü—Íæ“¾
 
@@ -77,7 +77,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			break;
 
 		case END:
-			
+			DrawEnd();
 			break;
 
 		}
