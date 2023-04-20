@@ -9,6 +9,8 @@ void DrawTitle(void) {
 
 	static int menuNo = 0;
 
+	PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP, false);
+
 	//メニューカーソル移動処理
 	if (gKeyFlg & PAD_INPUT_DOWN) {
 		PlaySoundMem(gSEmenu1, DX_PLAYTYPE_BACK, true);
@@ -46,6 +48,6 @@ void DrawTitle(void) {
 	DrawGraph(0, 0, gTitleImg, false);
 	DrawRotaGraph(215, 257 + menuNo * 35, 0.5f, 0, gAppleImg[0], true);
 
-	PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP, false);
+
 
 }

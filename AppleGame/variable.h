@@ -48,6 +48,8 @@ extern int gOldKey;		//前回の入力キー
 extern int gNowKey;		//今回の入力キー
 extern int gKeyFlg;		//入力キー情報
 
+extern 	int CoolTime;
+
 extern int gTitleBGM;				//タイトルBGM
 extern int gStageBGM;				//ステージBGM
 extern int gGameOverSE;			//ゲームオーバーSE

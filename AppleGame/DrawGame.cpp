@@ -19,7 +19,7 @@ void DrawGame(void) {
 
 	DrawFormatString(520, 40, 0x000000, "Time:%-3d", gGameTime);
 
-	DrawFormatString(520, 80, 0x000000, "Score:%--6d", gScore);
+	DrawFormatString(520, 80, 0x000000, "Score:%-6d", gScore);
 
 
 	SetFontSize(24);
@@ -44,9 +44,10 @@ void DrawGame(void) {
 	}
 	else if (!Pause) {
 
-		//if (gGameTime < 1) {
-		//	gGameMode = GAMEOVER;
-		//}
+		if (gGameTime < 1) {
+			StopSoundMem(gStageBGM);
+			gGameMode = GAMEOVER;
+		}
 
 		AppleControl();
 

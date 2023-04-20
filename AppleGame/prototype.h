@@ -20,6 +20,7 @@ void PlayerControl(void);
 void DrawTitle(void);
 void DrawEnd(void);
 int LoadSound(void);
+void DrawGameOver(void);
 //int HitBoxPlayer(APPLE* a);
 
 #endif

@@ -2,7 +2,7 @@
 #include "apple.h"
 #include "prototype.h"
 #include "variable.h"
-
+#include "Player.h"
 extern int gAppleImg[4];
 extern struct PLAYER gPlayer;
 
@@ -30,14 +30,14 @@ void AppleControl(void) {
 			}
 
 			////当たり判定
-			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true) {
+			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true &&gPlayer.flg==true) {
 				if (gApple[i].type == 3) {
 					PlaySoundMem(gSEapple2, DX_PLAYTYPE_BACK, true);
+					gPlayer.flg = false;
 				}
 				else {
 					PlaySoundMem(gSEapple1, DX_PLAYTYPE_BACK, true);
 				}
-				/*gPlayer.flg = false;*/
 				gAppleCount[gApple[i].type] ++;
 				gScore += gAppleScore[gApple[i].type];
 				gApple[i].flg = false;
@@ -47,10 +47,7 @@ void AppleControl(void) {
 		}
 	}
 
-	////走行距離ごとに敵出現パターンを制御する
-	//if (gMileage / 10 % 50 == 0) {
-	//	CreateApple();
-	//}
+	DrawFormatString(120, 80, 0x000000, "Score:%-6d", CoolTime);
 
 	CreateApple();
 
