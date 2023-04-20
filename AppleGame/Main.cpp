@@ -3,7 +3,7 @@
 #include "variable.h"
 #include "define.h"
 
-mode gGameMode = INIT;
+mode gGameMode = TITLE;
 
 extern int gStageImg;
 extern int gAppleImg[4];
@@ -32,6 +32,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	//画像読み込み関数の呼び出し
 	if (LoadImages() == -1)return -1;
+	if (LoadSound() == -1)return -1;
 
 	//ゲームループ
 	while (ProcessMessage() == 0) {
@@ -48,7 +49,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		switch (gGameMode) {
 
 		case TITLE:
-
+			DrawTitle();
 			break;
 
 		case INIT:

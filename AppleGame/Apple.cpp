@@ -31,6 +31,12 @@ void AppleControl(void) {
 
 			////“–‚½‚è”»’è
 			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true) {
+				if (gApple[i].type == 3) {
+					PlaySoundMem(gSEapple2, DX_PLAYTYPE_BACK, true);
+				}
+				else {
+					PlaySoundMem(gSEapple1, DX_PLAYTYPE_BACK, true);
+				}
 				/*gPlayer.flg = false;*/
 				gAppleCount[gApple[i].type] ++;
 				gScore += gAppleScore[gApple[i].type];
