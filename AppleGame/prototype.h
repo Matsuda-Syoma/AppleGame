@@ -19,6 +19,7 @@ int HitBoxPlayer(PLAYER* p, APPLE* e);
 void PlayerControl(void);
 void DrawTitle(void);
 int LoadSound(void);
+void DrawGameOver(void);
 //int HitBoxPlayer(APPLE* a);
 
 #endif

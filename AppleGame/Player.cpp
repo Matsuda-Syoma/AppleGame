@@ -11,7 +11,8 @@ int count;
 int Acount;
 int key[256];
 int ix, gh = 1;
-
+int CoolTime
+;
 //ïœêîêÈåæ
 struct PLAYER gPlayer;
 
@@ -27,12 +28,14 @@ void PlayerControl(void)
 	//à⁄ìÆ
 	if (gPlayer.flg == true) {
 
+		DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+
 		gPlayer.x += gPlayer.speed;
 
 		//âE
 		if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 1.5f) {
 
-			gPlayer.speed += 0.01f;
+			gPlayer.speed += 0.02f;
 
 		}
 		else if (gPlayer.speed > 0.0f) {
@@ -41,20 +44,13 @@ void PlayerControl(void)
 
 		//ç∂
 		if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -1.5f) {
-			gPlayer.speed -= 0.01f;
+			gPlayer.speed -= 0.02f;
 		}
 		else if (gPlayer.speed < 0.0f) {
 			gPlayer.speed += 0.01f;
 		}
 
 		//animation
-
-	/*	if (++Acount < 48 && gNowKey & PAD_INPUT_LEFT) {
-			if (count > 0) {
-				count = 0;
-				--count;
-			}
-		}*/
 
 		if (gPlayer.speed > 0.1f) {
 			gh = count % 3 + 6;
@@ -75,8 +71,6 @@ void PlayerControl(void)
 			gh = 1;
 		}
 
-		DrawFormatString(520, 400, 0x000000, "speed %lf", gPlayer.speed);
-
 	}
 
 
@@ -84,34 +78,18 @@ void PlayerControl(void)
 	if (gPlayer.x < 32)gPlayer.x = 32;
 	if (gPlayer.x > 468)gPlayer.x = 468;
 
-	//ix = abs(count) % 30 / 10;
-
-	////âEå¸Ç´
-	//if (count > 0) {
-	//	ix += 6;
-	//	gh = ix;
-	//}
-	//else if (count < 0) {
-	//	//ç∂å¸Ç´
-	//	ix += 3;
-	//	gh = ix;
-	//}
 
 	//ï`âÊ
-	if (gPlayer.flg = true) {
-		////ç∂à⁄ìÆï`âÊ
-		//if (gNowKey & PAD_INPUT_LEFT) {
-			DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
-		//}
-		////âEà⁄ìÆï`âÊ
-		//else if (gNowKey & PAD_INPUT_RIGHT) {
-		//	DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
-		//}
-		//else {
-		//	//ìÆÇ¢ÇƒÇ¢Ç»Ç¢Ç∆Ç´ÇÕê≥ñ Ç…å¸ÇØÇÈ
-		//	DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[1], TRUE, FALSE);
-		//	count = 0;
-		//}
+	if (gPlayer.flg == false) {
 
+		if (++CoolTime < 120) {
+			if (CoolTime % 40 < 20) {
+				DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+			}
+		}
+		else {
+			CoolTime = 0;
+			gPlayer.flg = true;
+		}
 	}
 }
