@@ -20,6 +20,12 @@ void PlayerControl(void);
 void DrawTitle(void);
 int LoadSound(void);
 void DrawGameOver(void);
+
+void DrawRanking(void);
+void InputName(void);
+void SortRanking(void);
+int SaveRanking(void);
+int ReadRanking(void);
 //int HitBoxPlayer(APPLE* a);
 
 #endif
