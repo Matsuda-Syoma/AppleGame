@@ -8,7 +8,7 @@ extern mode gGameMode;
 void DrawTitle(void) {
 
 	static int menuNo = 0;
-
+	//タイトルBGM再生
 	PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP, false);
 
 	//メニューカーソル移動処理
