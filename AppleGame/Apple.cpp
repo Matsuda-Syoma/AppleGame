@@ -3,6 +3,11 @@
 #include "prototype.h"
 #include "variable.h"
 #include "Player.h"
+
+#include<stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 extern int gAppleImg[4];
 extern struct PLAYER gPlayer;
 
@@ -10,6 +15,11 @@ struct APPLE gApple[APPLE_MAX];
 struct APPLE gApple00 = { true,0,0,0,10,55,55,0,1 };
 float gAppleSpeed[4] = { 1.0f,2.0f,3.5f,0.5f };
 int gAppleScore[4] = { 100,200,500,-750 };
+
+int rnd;
+
+
+int Random(void);
 
 void AppleControl(void) {
 
@@ -47,8 +57,6 @@ void AppleControl(void) {
 		}
 	}
 
-	DrawFormatString(120, 80, 0x000000, "Score:%-6d", CoolTime);
-
 	CreateApple();
 
 }
@@ -58,7 +66,7 @@ int CreateApple(void) {
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == false) {
 			gApple[i] = gApple00;
-			gApple[i].type = GetRand(3);
+			gApple[i].type = Random();
 			gApple[i].img = gAppleImg[gApple[i].type];
 			//gApple[i].img = gAppleImg;
 			gApple[i].x = GetRand(6) * 70 + 40;//Å‘å420 + 40
@@ -78,4 +86,23 @@ int CreateApple(void) {
 	}
 	//Ž¸”s
 	return false;
+}
+
+int Random(void) {
+
+	rnd = rand() % 100;
+
+	if (rnd < 60) {	//Ô
+		return 0;
+	}else
+	if (rnd < 85) {	//Â
+		return 1;
+	}else
+	if (rnd < 95) {	//‹à
+		return 2;
+	}else
+	if (rnd < 100) {//“Å
+		return 3;
+	}
+	return -1;
 }
