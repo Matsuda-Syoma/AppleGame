@@ -73,7 +73,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			break;
 
 		case HELP:
-			
+			DrawHelp();
 			break;
 
 		case INPUTNAME:
