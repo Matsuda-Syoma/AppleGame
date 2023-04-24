@@ -33,39 +33,55 @@ void PlayerControl(void)
 		gPlayer.x += gPlayer.speed;
 
 		//‰E
-		if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 1.5f) {
+		if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 3.6f) {
 
-			gPlayer.speed += 0.02f;
+			gPlayer.speed += 0.1f;
 
 		}
 		else if (gPlayer.speed > 0.0f) {
-			gPlayer.speed -= 0.01f;
+			gPlayer.speed -= 0.2f;
 		}
 
 		//¶
-		if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -1.5f) {
-			gPlayer.speed -= 0.02f;
+		if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -3.6f) {
+			gPlayer.speed -= 0.1f;
 		}
 		else if (gPlayer.speed < 0.0f) {
-			gPlayer.speed += 0.01f;
+			gPlayer.speed += 0.2f;
 		}
+
+
+
+		if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
+
+			if (~gNowKey & PAD_INPUT_LEFT && ~gNowKey & PAD_INPUT_RIGHT) {
+
+				gPlayer.speed = 0.0f;
+			}
+		}
+
+
+		DrawFormatString(80, 100, 0x000000, "x%3f", gPlayer.speed);
 
 		//animation
 
-		if (gPlayer.speed > 0.1f) {
+		//‰E
+		if (gPlayer.speed > 0.2f) {
 			gh = count % 3 + 6;
-			if (++Acount > 24) {
+			if (++Acount > 24/gPlayer.speed) {
 				++count;
 				Acount = 0;
 			}
-		}else if (gPlayer.speed < 0.0f) {
+
+			//¶
+		}else if (gPlayer.speed < -0.2f) {
 			gh = count % 3 + 3;
-			if (++Acount > 24) {
+			if (++Acount > 24 / (gPlayer.speed* -1)) {
 				++count;
 				Acount = 0;
 			}
 		}
-		else if(gPlayer.speed <= 0.1f && gPlayer.speed> 0.0f) {
+		else if(gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
 			count = 0;
 			Acount = 0;
 			gh = 1;

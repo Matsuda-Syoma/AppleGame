@@ -28,6 +28,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//ウィンドウモードで起動
 	ChangeWindowMode(true);
 
+	SetWaitVSyncFlag(FALSE);
+
 	//DXライブラリの初期化処理
 	if (DxLib_Init() == -1)return -1;
 
@@ -36,7 +38,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	//画像読み込み関数の呼び出し
 	if (LoadImages() == -1)return -1;
-	if (LoadSound() == -1)return -1;
+	//if (LoadSound() == -1)return -1;
 
 	srand((unsigned)time(NULL));
 
@@ -87,6 +89,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			break;
 
 		}
+
+		WaitTimer(16);
 
 		//裏画面の内容を表に表示する
 		ScreenFlip();

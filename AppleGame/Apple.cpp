@@ -16,6 +16,8 @@ struct APPLE gApple00 = { true,0,0,0,10,55,55,0,1 };
 float gAppleSpeed[4] = { 1.0f,2.0f,3.5f,0.5f };
 int gAppleScore[4] = { 100,200,500,-750 };
 
+int AppleTime;		//りんごの生成タイミング
+
 int rnd;
 
 
@@ -51,13 +53,18 @@ void AppleControl(void) {
 				gAppleCount[gApple[i].type] ++;
 				gScore += gAppleScore[gApple[i].type];
 				gApple[i].flg = false;
+				if (gScore < 0) {
+					gScore = 0;
+				}
 			}
 
 
 		}
 	}
-
-	CreateApple();
+	if (++AppleTime > 25) {
+		CreateApple();
+		AppleTime = 0;
+	}
 
 }
 
