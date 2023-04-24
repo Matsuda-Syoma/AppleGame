@@ -1,8 +1,7 @@
 #include "DxLib.h"
 #include "prototype.h"
 #include "variable.h"
-#define RANKING_DATA 5
-
+#include "ranking.h"
 extern mode gGameMode;
 
 void DrawRanking(void)
