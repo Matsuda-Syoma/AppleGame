@@ -3,14 +3,19 @@
 #include "variable.h"
 #define RANKING_DATA 5
 
+extern mode gGameMode;
+
 void DrawRanking(void)
 {
 	// Aボタンでタイトルへ推移
-	
+	if (gKeyFlg & PAD_INPUT_A) gGameMode = TITLE;
 
-	// ランキング画像表示
 	DrawGraph(0, 0, gTitleImg, FALSE);
 
 	// ランキング一覧を表示
-	
+	SetFontSize(18);
+		for (int i = 0; i < RANKING_DATA; i++) {
+			
+	}
+
 }
