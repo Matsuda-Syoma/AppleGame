@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="Apple.cpp" />
     <ClCompile Include="DrawGame.cpp" />
+    <ClCompile Include="end.cpp" />
     <ClCompile Include="GameInit.cpp" />
     <ClCompile Include="help.cpp" />
     <ClCompile Include="Main.cpp" />
