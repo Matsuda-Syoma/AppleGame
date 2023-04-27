@@ -53,3 +53,37 @@ void InputName(void)
 		gGameMode = RANKING;				//ゲームモードの変更
 	}
 }
+
+/***********************************************
+ * ランキング並べ替え
+ ***********************************************/
+void SortRanking(void)
+{
+	int i, j;
+	RankingData work;
+
+	// 選択法ソート
+	for (i = 0; i < RANKING_DATA - 1; i++) {
+		for (j = i + 1; j < RANKING_DATA; j++) {
+			if (gRanking[i].score <= gRanking[j].score) {
+				work = gRanking[i];
+				gRanking[i] = gRanking[j];
+				gRanking[j] = work;
+			}
+		}
+	}
+
+	// 順位付け
+	for (i = 0; i < RANKING_DATA; i++) {
+		gRanking[i].no = 1;
+	}
+	// 得点が同じ場合は、同じ順位とする
+	// 同順位があった場合の次の順位はデータ個数が加算された順位とする
+	for (i = 0; i < RANKING_DATA - 1; i++) {
+		for (j = i + 1; j < RANKING_DATA; j++) {
+			if (gRanking[i].score > gRanking[j].score) {
+				gRanking[j].no++;
+			}
+		}
+	}
+}
