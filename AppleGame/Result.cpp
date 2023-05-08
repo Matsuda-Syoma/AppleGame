@@ -3,6 +3,8 @@
 #include "variable.h"
 #include "define.h"
 
+extern mode gGameMode;
+
 void DrawGameOver(void) {
 
 	PlaySoundMem(gGameOverSE, DX_PLAYTYPE_BACK, false);
@@ -18,5 +20,7 @@ void DrawGameOver(void) {
 		DrawFormatString(300, 150 + 30 * i, 0x000000, "x%3d", gAppleCount[i]);
 	}
 	DrawFormatString(250, 280, 0x000000, "Score : %-6d", gScore);
-
+	if (gKeyFlg & PAD_INPUT_A) {
+		gGameMode = INPUTNAME;
+	}
 }
