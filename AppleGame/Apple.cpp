@@ -98,7 +98,6 @@ int CreateApple(void) {
 int Random(void) {
 
 	rnd = rand() % 100;
-
 	if (rnd < 60) {	//Ô
 		return 0;
 	}else

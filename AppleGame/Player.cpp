@@ -28,7 +28,7 @@ void PlayerControl(void)
 	//ˆÚ“®
 	if (gPlayer.flg == true) {
 
-		DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+		DrawRotaGraph(gPlayer.x, gPlayer.y, 2.5f, 0, gPlayerImg[gh], TRUE, FALSE);
 
 		gPlayer.x += gPlayer.speed;
 
@@ -100,7 +100,7 @@ void PlayerControl(void)
 
 		if (++CoolTime < 120) {
 			if (CoolTime % 40 < 20) {
-				DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+				DrawRotaGraph(gPlayer.x, gPlayer.y, 2.5f, 0, gPlayerImg[gh], TRUE, FALSE);
 			}
 		}
 		else {
