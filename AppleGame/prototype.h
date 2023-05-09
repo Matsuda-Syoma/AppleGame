@@ -18,9 +18,16 @@ void DrawGame(void);
 int HitBoxPlayer(PLAYER* p, APPLE* e);
 void PlayerControl(void);
 void DrawTitle(void);
-void DrawEnd(void);
+void DrawHelp(void);
 int LoadSound(void);
 void DrawGameOver(void);
+
+void DrawRanking(void);
+void InputName(void);
+void SortRanking(void);
+int SaveRanking(void);
+int ReadRanking(void);
+
 //int HitBoxPlayer(APPLE* a);
 
 #endif

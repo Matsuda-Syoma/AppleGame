@@ -43,6 +43,7 @@ extern int gTitleImg; //タイトル画像
 
 extern int gAppleImg[4];
 extern int gStageImg;
+extern int gHelpImg;
 
 extern int gOldKey;		//前回の入力キー
 extern int gNowKey;		//今回の入力キー
@@ -58,4 +59,5 @@ extern int gSEmenu2;				//効果音2(メニュー決定)
 extern int gSEapple1;				//効果音りんご1(通常りんご)
 extern int gSEapple2;				//効果音りんご2(毒りんご)
 
+extern int rnd;
 #endif

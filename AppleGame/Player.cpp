@@ -11,7 +11,8 @@ int count;
 int Acount;
 int key[256];
 int ix, gh = 1;
-int CoolTime;
+int CoolTime
+;
 //変数宣言
 struct PLAYER gPlayer;
 
@@ -24,64 +25,80 @@ void PlayerControl(void)
 {
 	extern int gPlayerImg[12];
 
-	//移動
-	if (gPlayer.flg == true) {
+	gPlayer.x += gPlayer.speed;
 
-		DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+	//右
+	if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 3.6f) {
 
-		gPlayer.x += gPlayer.speed;
+		gPlayer.speed += 0.1f;
 
-		//右
-		if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 1.5f) {
+	}
+	else if (gPlayer.speed > 0.0f) {
+		gPlayer.speed -= 0.2f;
+	}
 
-			gPlayer.speed += 0.02f;
+	//左
+	if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -3.6f) {
+		gPlayer.speed -= 0.1f;
+	}
+	else if (gPlayer.speed < 0.0f) {
+		gPlayer.speed += 0.2f;
+	}
 
+
+
+	if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
+
+		if (~gNowKey & PAD_INPUT_LEFT && ~gNowKey & PAD_INPUT_RIGHT) {
+
+			gPlayer.speed = 0.0f;
 		}
-		else if (gPlayer.speed > 0.0f) {
-			gPlayer.speed -= 0.01f;
+	}
+
+	//animation
+
+	//右
+	if (gPlayer.speed > 0.2f) {
+		gh = count % 3 + 6;
+		if (++Acount > 24 / gPlayer.speed) {
+			++count;
+			Acount = 0;
 		}
 
 		//左
-		if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -1.5f) {
-			gPlayer.speed -= 0.02f;
-		}
-		else if (gPlayer.speed < 0.0f) {
-			gPlayer.speed += 0.01f;
-		}
-
-		//animation
-
-		if (gPlayer.speed > 0.1f) {
-			gh = count % 3 + 6;
-			if (++Acount > 24) {
-				++count;
-				Acount = 0;
-			}
-		}else if (gPlayer.speed < 0.0f) {
-			gh = count % 3 + 3;
-			if (++Acount > 24) {
-				++count;
-				Acount = 0;
-			}
-		}
-		else if(gPlayer.speed <= 0.1f && gPlayer.speed> 0.0f) {
-			count = 0;
-			Acount = 0;
-			gh = 1;
-		}
-
 	}
+	else if (gPlayer.speed < -0.2f) {
+		gh = count % 3 + 3;
+		if (++Acount > 24 / (gPlayer.speed * -1)) {
+			++count;
+			Acount = 0;
+		}
+	}
+	else if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
+		count = 0;
+		Acount = 0;
+		gh = 1;
+	}
+
+
 
 	//画面をはみ出さないようにする
 	if (gPlayer.x < 32)gPlayer.x = 32;
 	if (gPlayer.x > 468)gPlayer.x = 468;
+
+	//移動
+	if (gPlayer.flg == true) {
+
+		DrawRotaGraph(gPlayer.x, gPlayer.y, 2.5f, 0, gPlayerImg[gh], TRUE, FALSE);
+
+	}
 
 	//描画
 	if (gPlayer.flg == false) {
 
 		if (++CoolTime < 120) {
 			if (CoolTime % 40 < 20) {
-				DrawRotaGraph(gPlayer.x, gPlayer.y, 3.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+				DrawRotaGraph(gPlayer.x, gPlayer.y, 2.5f, 0, gPlayerImg[gh], TRUE, FALSE);
 			}
 		}
 		else {

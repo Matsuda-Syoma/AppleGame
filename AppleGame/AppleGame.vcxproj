@@ -156,6 +156,7 @@
     <ClInclude Include="loadimages.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="prototype.h" />
+    <ClInclude Include="ranking.h" />
     <ClInclude Include="variable.h" />
   </ItemGroup>
   <ItemGroup>
@@ -163,11 +164,13 @@
     <ClCompile Include="DrawGame.cpp" />
     <ClCompile Include="End.cpp" />
     <ClCompile Include="GameInit.cpp" />
+    <ClCompile Include="help.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="hitbox.cpp" />
     <ClCompile Include="LoadImages.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player_m.cpp" />
+    <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="sound.cpp" />
     <ClCompile Include="title.cpp" />
