@@ -11,8 +11,7 @@ int count;
 int Acount;
 int key[256];
 int ix, gh = 1;
-int CoolTime
-;
+int CoolTime;
 //•Ï”éŒ¾
 struct PLAYER gPlayer;
 
@@ -73,11 +72,9 @@ void PlayerControl(void)
 
 	}
 
-
 	//‰æ–Ê‚ğ‚Í‚İo‚³‚È‚¢‚æ‚¤‚É‚·‚é
 	if (gPlayer.x < 32)gPlayer.x = 32;
 	if (gPlayer.x > 468)gPlayer.x = 468;
-
 
 	//•`‰æ
 	if (gPlayer.flg == false) {
