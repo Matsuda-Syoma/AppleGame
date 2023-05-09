@@ -25,75 +25,73 @@ void PlayerControl(void)
 {
 	extern int gPlayerImg[12];
 
-	//移動
-	if (gPlayer.flg == true) {
+	gPlayer.x += gPlayer.speed;
 
-		DrawRotaGraph(gPlayer.x, gPlayer.y, 2.5f, 0, gPlayerImg[gh], TRUE, FALSE);
+	//右
+	if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 3.6f) {
 
-		gPlayer.x += gPlayer.speed;
+		gPlayer.speed += 0.1f;
 
-		//右
-		if (gNowKey & PAD_INPUT_RIGHT && gPlayer.speed < 3.6f) {
+	}
+	else if (gPlayer.speed > 0.0f) {
+		gPlayer.speed -= 0.2f;
+	}
 
-			gPlayer.speed += 0.1f;
+	//左
+	if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -3.6f) {
+		gPlayer.speed -= 0.1f;
+	}
+	else if (gPlayer.speed < 0.0f) {
+		gPlayer.speed += 0.2f;
+	}
 
+
+
+	if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
+
+		if (~gNowKey & PAD_INPUT_LEFT && ~gNowKey & PAD_INPUT_RIGHT) {
+
+			gPlayer.speed = 0.0f;
 		}
-		else if (gPlayer.speed > 0.0f) {
-			gPlayer.speed -= 0.2f;
+	}
+
+	//animation
+
+	//右
+	if (gPlayer.speed > 0.2f) {
+		gh = count % 3 + 6;
+		if (++Acount > 24 / gPlayer.speed) {
+			++count;
+			Acount = 0;
 		}
 
 		//左
-		if (gNowKey & PAD_INPUT_LEFT && gPlayer.speed > -3.6f) {
-			gPlayer.speed -= 0.1f;
-		}
-		else if (gPlayer.speed < 0.0f) {
-			gPlayer.speed += 0.2f;
-		}
-
-
-
-		if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
-
-			if (~gNowKey & PAD_INPUT_LEFT && ~gNowKey & PAD_INPUT_RIGHT) {
-
-				gPlayer.speed = 0.0f;
-			}
-		}
-
-
-		DrawFormatString(80, 100, 0x000000, "x%3f", gPlayer.speed);
-
-		//animation
-
-		//右
-		if (gPlayer.speed > 0.2f) {
-			gh = count % 3 + 6;
-			if (++Acount > 24/gPlayer.speed) {
-				++count;
-				Acount = 0;
-			}
-
-			//左
-		}else if (gPlayer.speed < -0.2f) {
-			gh = count % 3 + 3;
-			if (++Acount > 24 / (gPlayer.speed* -1)) {
-				++count;
-				Acount = 0;
-			}
-		}
-		else if(gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
-			count = 0;
-			Acount = 0;
-			gh = 1;
-		}
-
 	}
+	else if (gPlayer.speed < -0.2f) {
+		gh = count % 3 + 3;
+		if (++Acount > 24 / (gPlayer.speed * -1)) {
+			++count;
+			Acount = 0;
+		}
+	}
+	else if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
+		count = 0;
+		Acount = 0;
+		gh = 1;
+	}
+
 
 
 	//画面をはみ出さないようにする
 	if (gPlayer.x < 32)gPlayer.x = 32;
 	if (gPlayer.x > 468)gPlayer.x = 468;
 
+	//移動
+	if (gPlayer.flg == true) {
+
+		DrawRotaGraph(gPlayer.x, gPlayer.y, 2.5f, 0, gPlayerImg[gh], TRUE, FALSE);
+
+	}
 
 	//描画
 	if (gPlayer.flg == false) {

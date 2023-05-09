@@ -42,7 +42,7 @@ void AppleControl(void) {
 			}
 
 			////ìñÇΩÇËîªíË
-			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true &&gPlayer.flg==true) {
+			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true &&gPlayer.flg == true) {
 				if (gApple[i].type == 3) {
 					PlaySoundMem(gSEapple2, DX_PLAYTYPE_BACK, true);
 					gPlayer.flg = false;
@@ -62,10 +62,9 @@ void AppleControl(void) {
 		}
 	}
 	if (++AppleTime > 25) {
-		CreateApple();
-		AppleTime = 0;
+			CreateApple();
+			AppleTime = 0;
 	}
-
 }
 
 int CreateApple(void) {
@@ -75,10 +74,10 @@ int CreateApple(void) {
 			gApple[i] = gApple00;
 			gApple[i].type = Random();
 			gApple[i].img = gAppleImg[gApple[i].type];
-			//gApple[i].img = gAppleImg;
-			gApple[i].x = GetRand(6) * 70 + 40;//ç≈ëÂ420 + 40
+			gApple[i].x = GetRand(6) * 70 + 40;
 			gApple[i].speed = gAppleSpeed[gApple[i].type];
 			gApple[i].score = gAppleScore[gApple[i].type];
+			//ì≈ÇËÇÒÇ≤ÇÃéûÇÕîªíËÇ0.9î{Ç…Ç∑ÇÈ
 			if (gApple[i].type == 3) {
 				gApple[i].w = gApple[i].w * 0.9f;
 				gApple[i].h = gApple[i].h * 0.9f;

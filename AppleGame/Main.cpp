@@ -30,6 +30,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	SetWaitVSyncFlag(FALSE);
 
+	SetWindowSize(1280, 720);
+
 	//DXƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»ˆ—
 	if (DxLib_Init() == -1)return -1;
 
