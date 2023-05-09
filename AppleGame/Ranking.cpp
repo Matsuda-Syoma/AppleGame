@@ -3,7 +3,7 @@
 #include "variable.h"
 #include "ranking.h"
 extern mode gGameMode;
-
+RankingData gRanking[RANKING_DATA];
 
 void DrawRanking(void)
 {
@@ -16,7 +16,7 @@ void DrawRanking(void)
 	// ƒ‰ƒ“ƒLƒ“ƒOˆê——‚ð•\Ž¦
 	SetFontSize(36);
 	for (int i = 0; i < RANKING_DATA; i++) {
-		DrawFormatString(80, 140 + i * 40, 0x000000,
+		DrawFormatString(80, 160 + i * 40, 0x000000,
 			"%2d %-10s %10d",
 			gRanking[i].no,
 			gRanking[i].name,
@@ -27,6 +27,7 @@ void DrawRanking(void)
 
 void InputName(void)
 {
+
 	DrawGraph(0, 0, gStageImg, FALSE);
 
 	SetFontSize(20);

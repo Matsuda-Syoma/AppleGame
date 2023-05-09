@@ -2,6 +2,7 @@
 #include"prototype.h"
 #include "variable.h"
 #include "define.h"
+#include "ranking.h"
 
 extern mode gGameMode;
 
@@ -21,6 +22,14 @@ void DrawGameOver(void) {
 	}
 	DrawFormatString(250, 280, 0x000000, "Score : %-6d", gScore);
 	if (gKeyFlg & PAD_INPUT_A) {
+		if (gRanking[RANKING_DATA - 1].score > gScore) {
+			gGameMode = RANKING; 
+		}
+		else
+		{
 		gGameMode = INPUTNAME;
+		}
+
+
 	}
 }
