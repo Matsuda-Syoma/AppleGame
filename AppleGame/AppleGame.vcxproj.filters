@@ -36,9 +36,6 @@
     <ClInclude Include="ranking.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="title.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

@@ -20,6 +20,9 @@ extern int gPlayerImg[12];
 
 int gAppleCount[4];
 
+//強制終了用変数
+int Back=0;
+
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow) {
 
 	//タイトルを設定
@@ -49,10 +52,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	srand((unsigned)time(NULL));
 
 	//ゲームループ
-	while (ProcessMessage() == 0 && gGameMode != CLOSE) {
+	while (ProcessMessage() == 0 && gGameMode != CLOSE && Back!=1) {
 
 		//入力取得
-
 		gOldKey = gNowKey;
 		gNowKey = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 		gKeyFlg = gNowKey & ~gOldKey;
@@ -93,13 +95,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		case END:
 			DrawEnd();
 			break;
-
 		}
 
 		WaitTimer(16);
 
 		//裏画面の内容を表に表示する
 		ScreenFlip();
+
+		//強制終
+		if (gNowKey == PAD_INPUT_L) {
+			Back = 1;
+		}
 	}
 
 	//DXライブラリの終了処理
