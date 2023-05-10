@@ -16,9 +16,9 @@ void DrawGameOver(void) {
 	DrawBox(150 + 5, 120 + 5, SCREEN_WIDTH - 150 - 5, SCREEN_HEIGHT - 160 - 5, 0xffffff, true);
 
 	for (int i = 0; i < 4; i++) {
-		DrawRotaGraph(300, 185 + 70 * i, 1.2f, 0, gAppleImg[i], true, false);
+		DrawRotaGraph(400, 185 + 70 * i, 1.2f, 0, gAppleImg[i], true, false);
 		SetFontSize(40);
-		DrawFormatString(400, 180 + 70 * i, 0x000000, "x%3d", gAppleCount[i]);
+		DrawFormatString(500, 180 + 70 * i, 0x000000, "x%3d", gAppleCount[i]);
 	}
 	DrawFormatString(250, 480, 0x000000, "Score : %-6d", gScore);
 	if (gKeyFlg & PAD_INPUT_A) {

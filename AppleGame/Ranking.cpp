@@ -30,15 +30,15 @@ void InputName(void)
 
 	DrawGraph(0, 0, gStageImg, FALSE);
 
-	SetFontSize(20);
+	SetFontSize(40);
 
 	DrawString(150, 200, "ランキングに登録します", 0xffffff);
-	DrawString(150, 230, "名前を英字で入力してください", 0xffffff);
+	DrawString(150, 260, "名前を英字で入力してください", 0xffffff);
 
 	//名前の入力
-	DrawString(150, 310, "> ", 0xFFFFFF);
-	DrawBox(160, 335, 295, 305, 0x000055, TRUE);
-	if (KeyInputSingleCharString(170, 310, 10, gRanking[RANKING_DATA - 1].name, FALSE)
+	DrawString(140, 350, "> ", 0xFFFFFF);
+	DrawBox(160, 335, 390, 400, 0x000055, TRUE);
+	if (KeyInputSingleCharString(170, 350, 10, gRanking[RANKING_DATA - 1].name, FALSE)
 		== 1) {
 		gRanking[RANKING_DATA - 1].score = gScore;	//ランキングデータにスコアを登録
 		SortRanking();						//ランキング並べ替え
