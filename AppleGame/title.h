@@ -8,5 +8,6 @@ struct TitleAnim {
 };
 struct TitleAnim TAnim00 = { true,0,0,0};
 TitleAnim TAnimApple[2];
+int Spawn = 0;
 
 #endif

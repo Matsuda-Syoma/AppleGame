@@ -51,9 +51,8 @@ void DrawTitle(void) {
 
 	for (int i = 0; i < 2; i++) {
 		if (TAnimApple[i].flg == false || gGameMode != TITLE) {
-
 			TAnimApple[i] = TAnim00;
-			TAnimApple[i].x = GetRand(1) * 800 + 240;
+			TAnimApple[i].x = ++Spawn % 2 * 800 + 240;
 			TAnimApple[i].speed = GetRand(5.0f) + 2;
 
 		}

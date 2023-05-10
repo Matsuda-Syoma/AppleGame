@@ -20,7 +20,7 @@ void DrawGameOver(void) {
 		SetFontSize(40);
 		DrawFormatString(500, 180 + 70 * i, 0x000000, "x%3d", gAppleCount[i]);
 	}
-	DrawFormatString(250, 480, 0x000000, "Score : %-6d", gScore);
+	DrawFormatString(500, 480, 0x000000, "Score : %-6d", gScore);
 	if (gKeyFlg & PAD_INPUT_A) {
 		if (gRanking[RANKING_DATA - 1].score > gScore) {
 			gGameMode = RANKING; 
