@@ -43,6 +43,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	if (LoadImages() == -1)return -1;
 	//if (LoadSound() == -1)return -1;
 
+	//ランキングデータの読込
+	if (ReadRanking() == -1) return -1;
+
 	srand((unsigned)time(NULL));
 
 	//ゲームループ
@@ -80,7 +83,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			break;
 
 		case INPUTNAME:
-			
+			InputName();
 			break;
 
 		case GAMEOVER:

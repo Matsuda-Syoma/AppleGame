@@ -3,60 +3,51 @@
 #include "variable.h"
 #include "ranking.h"
 extern mode gGameMode;
+RankingData gRanking[RANKING_DATA];
 
-/************************************
-*　ランキング画面
-*************************************/
 void DrawRanking(void)
 {
 	// Aボタンでタイトルへ推移
 	if (gKeyFlg & PAD_INPUT_A) gGameMode = TITLE;
 
 	//画像表示
-	DrawGraph(0, 0, gStageImg, FALSE);
-
-	DrawString(250,200,"---テスト表示---",0xff0000,0);
+	DrawGraph(0, 0, gRankingImg, FALSE);
 
 	// ランキング一覧を表示
-	//SetFontSize(18);
-	//for (int i = 0; i < RANKING_DATA; i++) {
-	//	DrawFormatString(50, 170 + i * 25, 0xffffff,
-	//		"%2d %-10s %10d",
-	//		gRanking[i].no,
-	//		gRanking[i].name,
-	//		gRanking[i].score);
-	//}
-
-	DrawString(160, 450, "--- Aボタンを押してタイトルに戻る ---", 0xff0000, 0);
+	SetFontSize(36);
+	for (int i = 0; i < RANKING_DATA; i++) {
+		DrawFormatString(80, 160 + i * 40, 0x000000,
+			"%2d %-10s %10d",
+			gRanking[i].no,
+			gRanking[i].name,
+			gRanking[i].score);
+	}
 }
 
-/************************************
-*　ランキング入力処理
-*************************************/
+
 void InputName(void)
 {
-	DrawGraph(0, 0, gTitleImg, FALSE);
+
+	DrawGraph(0, 0, gStageImg, FALSE);
 
 	SetFontSize(20);
 
-	DrawString(150, 240, "ランキングに登録します", 0xffffff);
-	DrawString(150, 270, "名前を英字で入力してください", 0xffffff);
+	DrawString(150, 200, "ランキングに登録します", 0xffffff);
+	DrawString(150, 230, "名前を英字で入力してください", 0xffffff);
 
 	//名前の入力
 	DrawString(150, 310, "> ", 0xFFFFFF);
-	DrawBox(160, 395, 300, 335, 0x000055, TRUE);
+	DrawBox(160, 335, 295, 305, 0x000055, TRUE);
 	if (KeyInputSingleCharString(170, 310, 10, gRanking[RANKING_DATA - 1].name, FALSE)
 		== 1) {
 		gRanking[RANKING_DATA - 1].score = gScore;	//ランキングデータにスコアを登録
-		//SortRanking();						//ランキング並べ替え
-		//SaveRanking();						//ランキングデータの保存
+		SortRanking();						//ランキング並べ替え
+		SaveRanking();						//ランキングデータの保存
 		gGameMode = RANKING;				//ゲームモードの変更
 	}
 }
 
-/***********************************************
- * ランキング並べ替え
- ***********************************************/
+
 void SortRanking(void)
 {
 	int i, j;
@@ -86,4 +77,50 @@ void SortRanking(void)
 			}
 		}
 	}
+}
+
+int  SaveRanking(void)
+{
+	FILE* fp;
+#pragma warning(disable:4996)
+
+	// ファイルオープン
+	if ((fp = fopen("data/rankingdata.txt", "w")) == NULL) {
+		/* エラー処理 */
+		printf("Ranking Data Error\n");
+		return -1;
+	}
+
+	// ランキングデータ分配列データを書き込む
+	for (int i = 0; i < RANKING_DATA; i++) {
+		fprintf(fp, "%2d %10s %10d\n", gRanking[i].no, gRanking[i].name, gRanking[i].score);
+	}
+
+	//ファイルクローズ
+	fclose(fp);
+	return 0;
+
+}
+
+int ReadRanking(void)
+{
+	FILE* fp;
+#pragma warning(disable:4996)
+
+	//ファイルオープン
+	if ((fp = fopen("data/rankingdata.txt", "r")) == NULL) {
+		//エラー処理
+		printf("Ranking Data Error\n");
+		return -1;
+	}
+
+	//ランキングデータ配分列データを読み込む
+	for (int i = 0; i < RANKING_DATA; i++) {
+		int dammy = fscanf(fp, "%2d %10s %10d", &gRanking[i].no, gRanking[i].name, &gRanking[i].score);
+	}
+
+	//ファイルクローズ
+	fclose(fp);
+
+	return 0;
 }

@@ -10,6 +10,6 @@ struct RankingData{
 };
 
 //•Ï”éŒ¾
-struct RankingData		gRanking[RANKING_DATA];
+extern struct RankingData		gRanking[RANKING_DATA];
 
 #endif
