@@ -14,9 +14,9 @@ void DrawRanking(void)
 	DrawGraph(0, 0, gRankingImg, FALSE);
 
 	// ƒ‰ƒ“ƒLƒ“ƒOˆê——‚ð•\Ž¦
-	SetFontSize(36);
+	SetFontSize(48);
 	for (int i = 0; i < RANKING_DATA; i++) {
-		DrawFormatString(80, 160 + i * 40, 0x000000,
+		DrawFormatString(240, 300 + i * 50, 0x000000,
 			"%2d %-10s %10d",
 			gRanking[i].no,
 			gRanking[i].name,

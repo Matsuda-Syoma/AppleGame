@@ -38,8 +38,8 @@ void DrawGame(void) {
 	if (Pause) {
 
 		SetFontSize(64);
-		DrawString(100, 200, "--ポーズ中--", 0x0f0f0f);
-		SetFontSize(16);
+		DrawString(400, 300, "--ポーズ中--", 0x0f0f0f);
+		SetFontSize(32);
 
 	}
 	else if (!Pause) {

@@ -67,9 +67,9 @@ void PlayerControl(void)
 		//ç∂
 	}
 	else if (gPlayer.speed < -0.2f) {
-		gh = count % 3 + 3;
+		gh = count % 3 + 5;
 		if (++Acount > 24 / (gPlayer.speed * -1)) {
-			++count;
+			-- count;
 			Acount = 0;
 		}
 	}

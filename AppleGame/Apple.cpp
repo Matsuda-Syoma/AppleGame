@@ -3,7 +3,7 @@
 #include "prototype.h"
 #include "variable.h"
 #include "Player.h"
-
+#include "define.h"
 #include<stdio.h>
 #include <stdlib.h>
 #include <time.h>

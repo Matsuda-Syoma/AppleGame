@@ -7,7 +7,7 @@ struct TitleAnim {
 	float speed;
 };
 struct TitleAnim TAnim00 = { true,0,0,0};
-TitleAnim TAnimApple[2];
+TitleAnim TAnimApple[12];
 int Spawn = 0;
 
 #endif

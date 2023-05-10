@@ -10,7 +10,16 @@ extern struct PLAYER gPlayer;
 //extern int gGameTime;
 void GameInit(void) {
 
+	//アイテムの初期設定
+	for (int i = 0; i < 4; i++) {
+		gAppleCount[i] = 0;
+	}
 
+	for (int i = 0; i < APPLE_MAX; i++) {
+		gApple[i].flg = false;
+	}
+
+	//プレイヤーの初期設定
 	gPlayer.flg = true;
 	gPlayer.x = 0;
 	gPlayer.y = SCREEN_HEIGHT - 120;
@@ -19,6 +28,7 @@ void GameInit(void) {
 	gPlayer.speed = 0;
 	CoolTime = 0;
 	OldAppleSpawn = 0;
+	gScore = 0;
 
 	gGameTime = GAMETIME;
 
