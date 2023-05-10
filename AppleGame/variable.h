@@ -11,7 +11,7 @@ enum mode {
 	INPUTNAME,
 	GAMEOVER,
 	END,
-	CLOSE
+	CLOSE,
 };
 
 //ƒŠƒ“ƒS‚Ì\‘¢‘Ì
