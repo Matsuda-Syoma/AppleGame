@@ -157,6 +157,7 @@
     <ClInclude Include="player.h" />
     <ClInclude Include="prototype.h" />
     <ClInclude Include="ranking.h" />
+    <ClInclude Include="title.h" />
     <ClInclude Include="variable.h" />
   </ItemGroup>
   <ItemGroup>

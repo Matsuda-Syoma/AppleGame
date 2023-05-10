@@ -2,6 +2,7 @@
 #include"prototype.h"
 #include "variable.h"
 #include "define.h"
+#include "title.h"
 
 extern mode gGameMode;
 
@@ -46,8 +47,23 @@ void DrawTitle(void) {
 
 	//タイトル、メニュー、カーソル画像の表示
 	DrawGraph(0, 0, gTitleImg, false);
-	DrawRotaGraph((215 * 2), 385 + menuNo * 55, 0.5f, 0, gAppleImg[0], true);
+	DrawRotaGraph((225 * 2), 385 + menuNo * 70, 1.0f, 0, gAppleImg[0], true);
 
+	for (int i = 0; i < 2; i++) {
+		if (TAnimApple[i].flg == false || gGameMode != TITLE) {
 
+			TAnimApple[i] = TAnim00;
+			TAnimApple[i].x = GetRand(1) * 800 + 240;
+			TAnimApple[i].speed = GetRand(5.0f) + 2;
+
+		}
+		else {
+			DrawRotaGraph(TAnimApple[i].x, TAnimApple[i].y, 0.5f, 0, gAppleImg[0], true, false);
+			TAnimApple[i].y += TAnimApple[i].speed;
+			if (TAnimApple[i].y > 1000) {
+				TAnimApple[i].flg = false;
+			}
+		}
+	}
 
 }
