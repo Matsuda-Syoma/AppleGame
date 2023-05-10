@@ -19,6 +19,6 @@ void DrawEnd(void) {
     DrawString(360, 480 - 24, "Thank you for playing", 0xffffff, 0);
 
     //ƒ^ƒCƒ€‰ÁŽZˆ—•I—¹(‚R•b)
-    if (++WaitTime > 500)gGameMode=CLOSE;
+    if (++WaitTime > 300)gGameMode=CLOSE;
 
 }
