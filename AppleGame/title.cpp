@@ -46,7 +46,7 @@ void DrawTitle(void) {
 
 	//タイトル、メニュー、カーソル画像の表示
 	DrawGraph(0, 0, gTitleImg, false);
-	DrawRotaGraph(215, 257 + menuNo * 35, 0.5f, 0, gAppleImg[0], true);
+	DrawRotaGraph((215 * 2), 385 + menuNo * 55, 0.5f, 0, gAppleImg[0], true);
 
 
 

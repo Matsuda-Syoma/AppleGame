@@ -12,13 +12,13 @@ extern int gAppleImg[4];
 extern struct PLAYER gPlayer;
 
 struct APPLE gApple[APPLE_MAX];
-struct APPLE gApple00 = { true,0,0,0,10,55,55,0,1 };
+struct APPLE gApple00 = { true,0,0,0,10,110,110,0,1 };
 float gAppleSpeed[4] = { 1.0f,2.0f,3.5f,0.5f };
 int gAppleScore[4] = { 100,200,500,-750 };
-
 int AppleTime;		//りんごの生成タイミング
-
 int rnd;
+int OldAppleSpawn;
+int NewAppleSpawn;
 
 
 int Random(void);
@@ -28,8 +28,8 @@ void AppleControl(void) {
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == true) {
 
-			//敵の表示
-			DrawRotaGraph(gApple[i].x, gApple[i].y, 1.0f, 0, gApple[i].img, true, false);
+			//りんごの表示
+			DrawRotaGraph(gApple[i].x, gApple[i].y, 2.0f, 0, gApple[i].img, true, false);
 
 			if (gApple[i].flg == false) continue;
 
@@ -62,7 +62,15 @@ void AppleControl(void) {
 		}
 	}
 	if (++AppleTime > 25) {
+
+		NewAppleSpawn = GetRand(6);
+
+		if (OldAppleSpawn != NewAppleSpawn) {
+
 			CreateApple();
+			OldAppleSpawn = NewAppleSpawn;
+
+		}
 			AppleTime = 0;
 	}
 }
@@ -74,7 +82,7 @@ int CreateApple(void) {
 			gApple[i] = gApple00;
 			gApple[i].type = Random();
 			gApple[i].img = gAppleImg[gApple[i].type];
-			gApple[i].x = GetRand(6) * 70 + 40;
+			gApple[i].x = NewAppleSpawn * 140 + 80;
 			gApple[i].speed = gAppleSpeed[gApple[i].type];
 			gApple[i].score = gAppleScore[gApple[i].type];
 			//毒りんごの時は判定を0.9倍にする

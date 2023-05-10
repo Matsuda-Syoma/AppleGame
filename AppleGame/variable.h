@@ -50,6 +50,8 @@ extern int gNowKey;		//今回の入力キー
 extern int gKeyFlg;		//入力キー情報
 
 extern 	int CoolTime;
+extern int OldAppleSpawn;
+extern int NewAppleSpawn;
 
 extern int gTitleBGM;				//タイトルBGM
 extern int gStageBGM;				//ステージBGM

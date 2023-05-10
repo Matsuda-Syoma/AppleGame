@@ -15,19 +15,19 @@ void DrawGame(void) {
 
 	DrawGraph(0, 0, gStageImg, false);
 
-	DrawBox(500, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ff80, true);
+	DrawBox(SCREEN_WIDTH - (140 * 2), 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ff80, true);
 
-	DrawFormatString(520, 40, 0x000000, "Time:%-3d", gGameTime);
+	DrawFormatString(SCREEN_WIDTH - (120 * 2), 80, 0x000000, "Time:%-3d", gGameTime);
 
-	DrawFormatString(520, 80, 0x000000, "Score:%-6d", gScore);
+	DrawFormatString(SCREEN_WIDTH - (120 * 2), 160, 0x000000, "Score:%-6d", gScore);
 
 
-	SetFontSize(24);
-	DrawString(520, 160, "å¬êî", 0x000000);
-	SetFontSize(16);
+	SetFontSize(48);
+	DrawString(SCREEN_WIDTH - (120 * 2), (160 * 2), "å¬êî", 0x000000);
+	SetFontSize(32);
 	for (int i = 0; i < 4; i++) {
-		DrawRotaGraph(540, 205 + 40 * i, 0.6f, 0, gAppleImg[i], true, false);
-		DrawFormatString(580, 200 + 40 * i, 0x000000, "x%3d", gAppleCount[i]);
+		DrawRotaGraph(SCREEN_WIDTH - (100 * 2), 410 + 70 * i, 1.2f, 0, gAppleImg[i], true, false);
+		DrawFormatString(SCREEN_WIDTH - (60 * 2), 400 + 70 * i, 0x000000, "x%3d", gAppleCount[i]);
 	}
 
 	if (gKeyFlg & PAD_INPUT_8) {
