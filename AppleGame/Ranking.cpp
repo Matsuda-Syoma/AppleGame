@@ -8,7 +8,11 @@ RankingData gRanking[RANKING_DATA];
 void DrawRanking(void)
 {
 	// Aボタンでタイトルへ推移
-	if (gKeyFlg & PAD_INPUT_A) gGameMode = TITLE;
+	if (gKeyFlg & PAD_INPUT_A) {
+		PlaySoundMem(gSEmenu2, DX_PLAYTYPE_BACK, true);
+		StopSoundMem(gGameOverSE);
+		gGameMode = TITLE;
+	}
 
 	//画像表示
 	DrawGraph(0, 0, gRankingImg, FALSE);
@@ -40,6 +44,7 @@ void InputName(void)
 	DrawBox(160, 335, 390, 400, 0x000055, TRUE);
 	if (KeyInputSingleCharString(170, 350, 10, gRanking[RANKING_DATA - 1].name, FALSE)
 		== 1) {
+		PlaySoundMem(gSEmenu2, DX_PLAYTYPE_BACK, true);
 		gRanking[RANKING_DATA - 1].score = gScore;	//ランキングデータにスコアを登録
 		SortRanking();						//ランキング並べ替え
 		SaveRanking();						//ランキングデータの保存

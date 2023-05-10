@@ -13,13 +13,14 @@ void DrawTitle(void) {
 	PlaySoundMem(gTitleBGM, DX_PLAYTYPE_LOOP, false);
 	//メニューカーソル移動処理
 	if (gKeyFlg & PAD_INPUT_DOWN) {
-		SetCreateSoundPitchRate(100.0f);
-		PlaySoundMem(gSEmenu1, DX_PLAYTYPE_BACK, true);
+
 		if (++menuNo > 3)menuNo = 0;
+		PlaySoundMem(gSEmenu1[menuNo], DX_PLAYTYPE_BACK, true);
 	}
 	if (gKeyFlg & PAD_INPUT_UP) {
-		PlaySoundMem(gSEmenu1, DX_PLAYTYPE_BACK, true);
+
 		if (--menuNo < 0)menuNo = 3;
+		PlaySoundMem(gSEmenu1[menuNo], DX_PLAYTYPE_BACK, true);
 	}
 
 	//Zキーでメニュー選択

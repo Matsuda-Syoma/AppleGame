@@ -9,6 +9,7 @@ int gTitleImg;
 int gHelpImg;
 int gRankingImg;
 int gPlayerImg[12];
+int gEndImg;
 
 int LoadImages(void) {
 	if (LoadDivGraph("Images/Apple.png", 4, 4, 1, 60, 60, gAppleImg) == -1)return -1;
@@ -17,6 +18,7 @@ int LoadImages(void) {
 	if ((gHelpImg = LoadGraph("Images/help.png")) == -1)return -1;
 	if (LoadDivGraph("Images/t12.png", 12, 3, 4, 32, 64, gPlayerImg) == -1)return -1;
 	if ((gRankingImg = LoadGraph("Images/RANKING.png")) == -1)return -1;
+	if ((gEndImg = LoadGraph("Images/bg_end.png")) == -1)return -1;
 
 	return 0;
 }

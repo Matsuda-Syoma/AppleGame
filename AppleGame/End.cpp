@@ -11,12 +11,9 @@ int WaitTime = 0;
 
 void DrawEnd(void) {
     //ƒGƒ“ƒh‰æ‘œ•\Ž¦
-    DrawGraph(0, 0, gStageImg, FALSE);
+    DrawGraph(0, 0, gEndImg, FALSE);
 
     StopSoundMem(gTitleBGM);
-
-    SetFontSize(24);
-    DrawString(360, 480 - 24, "Thank you for playing", 0xffffff, 0);
 
     //ƒ^ƒCƒ€‰ÁŽZˆ—•I—¹(‚R•b)
     if (++WaitTime > 300)gGameMode=CLOSE;

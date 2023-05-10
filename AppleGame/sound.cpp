@@ -5,7 +5,7 @@
 int gTitleBGM;				//タイトルBGM
 int gStageBGM;				//ステージBGM
 int gGameOverSE;			//ゲームオーバーSE
-int gSEmenu1;				//効果音1(メニューカーソル移動)
+int gSEmenu1[4];				//効果音1(メニューカーソル移動)
 int gSEmenu2;				//効果音2(メニュー決定)
 int gSEapple1;				//効果音りんご1(通常りんご)
 int gSEapple2;				//効果音りんご2(毒りんご)
@@ -19,7 +19,11 @@ int LoadSound(void)
 	//ゲームオーバーSEの読込
 	if ((gGameOverSE = LoadSoundMem("sounds/MusMus-JGL-010b.wav")) == -1) return -1;
 	//効果音１(メニューカーソル移動)の読込
-	if ((gSEmenu1 = LoadSoundMem("sounds/cursor_idou.wav")) == -1) return -1;
+	for(int i = 0;i < 4;i++){
+		SetCreateSoundPitchRate(100.0f * i);
+		gSEmenu1[i] = LoadSoundMem("sounds/cursor_idou.wav");
+	}
+	SetCreateSoundPitchRate(0.0f);
 	//効果音２(メニュー決定)の読込
 	if ((gSEmenu2 = LoadSoundMem("sounds/kettei.wav")) == -1) return -1;
 	//効果音りんご１(通常りんご)の読込

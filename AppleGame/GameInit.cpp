@@ -30,6 +30,9 @@ void GameInit(void) {
 	OldAppleSpawn = 0;
 	gScore = 0;
 
+	SetSoundCurrentTime(0, gStageBGM);
+	SetSoundCurrentTime(0, gGameOverSE);
+
 	gGameTime = GAMETIME;
 
 	for (int i = 0; i < 4; i++) {

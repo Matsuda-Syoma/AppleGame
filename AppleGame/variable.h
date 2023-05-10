@@ -39,13 +39,14 @@ struct APPLE {
 extern int gScore;		//スコア
 extern int gGameTime;	//ゲーム時間表示
 extern int gAppleCount[4];
+extern int gAppleScore[4];
 
-extern int gTitleImg; //タイトル画像
-
+extern int gTitleImg; //タイトル画
 extern int gAppleImg[4];
 extern int gStageImg;
 extern int gHelpImg;
 extern int gRankingImg;
+extern int gEndImg;
 
 extern int gOldKey;		//前回の入力キー
 extern int gNowKey;		//今回の入力キー
@@ -58,7 +59,7 @@ extern int NewAppleSpawn;
 extern int gTitleBGM;				//タイトルBGM
 extern int gStageBGM;				//ステージBGM
 extern int gGameOverSE;			//ゲームオーバーSE
-extern int gSEmenu1;				//効果音1(メニューカーソル移動)
+extern int gSEmenu1[4];				//効果音1(メニューカーソル移動)
 extern int gSEmenu2;				//効果音2(メニュー決定)
 extern int gSEapple1;				//効果音りんご1(通常りんご)
 extern int gSEapple2;				//効果音りんご2(毒りんご)
