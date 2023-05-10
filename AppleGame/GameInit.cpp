@@ -13,11 +13,12 @@ void GameInit(void) {
 
 	gPlayer.flg = true;
 	gPlayer.x = 0;
-	gPlayer.y = 400;
-	gPlayer.w = 64;
-	gPlayer.h = 120;
+	gPlayer.y = SCREEN_HEIGHT - 120;
+	gPlayer.w = 96;
+	gPlayer.h = 190;
 	gPlayer.speed = 0;
 	CoolTime = 0;
+	OldAppleSpawn = 0;
 
 	gGameTime = GAMETIME;
 
