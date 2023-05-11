@@ -5,7 +5,7 @@
 int gTitleBGM;				//タイトルBGM
 int gStageBGM;				//ステージBGM
 int gGameOverSE;			//ゲームオーバーSE
-int gSEmenu1[4];				//効果音1(メニューカーソル移動)
+int gSEmenu1[4];			//効果音1(メニューカーソル移動)
 int gSEmenu2;				//効果音2(メニュー決定)
 int gSEapple1;				//効果音りんご1(通常りんご)
 int gSEapple2;				//効果音りんご2(毒りんご)
