@@ -8,3 +8,4 @@ int AppleTime;		//りんごの生成タイミング
 int rnd;
 int OldAppleSpawn;
 int NewAppleSpawn;
+

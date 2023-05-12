@@ -1,5 +1,5 @@
  1         Ma       6000
  2          M       2600
- 3 AA0ecccbbb        400
- 3          a        400
- 3      abbbB        400
+ 3       AA01        700
+ 4          a        400
+ 4 AA0ecccbbb        400

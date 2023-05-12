@@ -1,7 +1,7 @@
 #include "DxLib.h"
-#include"prototype.h"
-#include "variable.h"
 #include "define.h"
+#include "variable.h"
+#include"prototype.h"
 #include "player.h"
 
 void GameInit(void) {

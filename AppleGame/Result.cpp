@@ -1,9 +1,9 @@
 #include "DxLib.h"
-#include "prototype.h"
-#include "variable.h"
 #include "define.h"
-#include "ranking.h"
+#include "variable.h"
+#include "prototype.h"
 #include "result.h"
+
 void DrawGameOver(void) {
 
 

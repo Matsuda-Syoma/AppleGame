@@ -10,4 +10,5 @@ struct RankingData{
 
 //•Ï”éŒ¾
 
+
 extern struct RankingData		gRanking[RANKING_DATA];

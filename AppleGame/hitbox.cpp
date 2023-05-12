@@ -1,7 +1,7 @@
 #include "DxLib.h"
 #include "prototype.h"
-#include "player.h"
 #include "variable.h"
+#include "player.h"
 //Ž©‹@‚Æ“G‹@‚Ì“–‚½‚è”»’è(’ZŒ`)
 int HitBoxPlayer(PLAYER* p, APPLE*e) {
 
