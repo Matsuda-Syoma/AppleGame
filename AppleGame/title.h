@@ -1,5 +1,4 @@
-#ifndef TITLE_H
-#define TITLE_H
+#pragma once
 
 struct TitleAnim {
 	int flg;
@@ -9,5 +8,3 @@ struct TitleAnim {
 struct TitleAnim TAnim00 = { true,0,0,0};
 TitleAnim TAnimApple[12];
 int Spawn = 0;
-
-#endif

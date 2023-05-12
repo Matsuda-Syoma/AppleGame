@@ -4,8 +4,6 @@
 #include "define.h"
 #include "title.h"
 
-extern mode gGameMode;
-
 void DrawTitle(void) {
 
 	static int menuNo = 0;

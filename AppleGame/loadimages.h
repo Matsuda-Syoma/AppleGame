@@ -1,4 +1,9 @@
-#ifndef LOADIMAGES_H
-#define LOADIMAGES_H
+#pragma once
 
-#endif
+int gAppleImg[4];
+int gStageImg;
+int gTitleImg;
+int gHelpImg;
+int gRankingImg;
+int gPlayerImg[12];
+int gEndImg;

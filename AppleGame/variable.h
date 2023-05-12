@@ -1,5 +1,4 @@
-#ifndef VARIABLE_H
-#define VARIABLE_H
+#pragma once
 
 #include "define.h"
 /*列挙型の宣言*/
@@ -26,15 +25,12 @@ struct APPLE {
 	int score;		//スコア
 };
 
-//プレイヤーの構造体
 
-//struct PLAYER {
-//	int flg;		//使用フラグ
-//	int type;		//状態
-//	int img;		//画像
-//	float x, y, w, h;	//座標、幅、高さ
-//	float speed;		//移動速度
-//};
+extern mode gGameMode;
+
+extern struct PLAYER gPlayer;
+extern struct APPLE gApple[APPLE_MAX];
+extern struct RankingData gRanking[RANKING_DATA];
 
 extern int gScore;		//スコア
 extern int gGameTime;	//ゲーム時間表示
@@ -65,6 +61,3 @@ extern int gSEapple1;				//効果音りんご1(通常りんご)
 extern int gSEapple2;				//効果音りんご2(毒りんご)
 
 extern int rnd;
-extern struct APPLE gApple[APPLE_MAX];
-
-#endif

@@ -1,24 +1,17 @@
 #include"DxLib.h"
-#include"Player.h"
 #include"prototype.h"
 #include"variable.h"
+#include"Player.h"
 
-extern int gOldKey;
-extern int gNowKey;
-extern int gKeyFlg;
+//•Ï”éŒ¾
 
 int count;
 int Acount;
 int key[256];
-int ix, gh = 1;
+int PlayerImg = 1;
 int CoolTime;
-//•Ï”éŒ¾
-struct PLAYER gPlayer;
 
-//for (i = 0; i < 360; i++) {
-//	fsin[i] = (float)sin(i * 3.1415926535 / 180);
-//	fcos[i] = (float)cos(i * 3.1415926535 / 180);
-//}
+struct PLAYER gPlayer;
 
 void PlayerControl(void)
 {
@@ -58,7 +51,7 @@ void PlayerControl(void)
 
 	//‰E
 	if (gPlayer.speed > 0.2f) {
-		gh = count % 3 + 6;
+		PlayerImg = count % 3 + 6;
 		if (++Acount > 24 / gPlayer.speed) {
 			++count;
 			Acount = 0;
@@ -67,7 +60,7 @@ void PlayerControl(void)
 		//¶
 	}
 	else if (gPlayer.speed < -0.2f) {
-		gh = count % 3 + 5;
+		PlayerImg = count % 3 + 5;
 		if (++Acount > 24 / (gPlayer.speed * -1)) {
 			-- count;
 			Acount = 0;
@@ -76,7 +69,7 @@ void PlayerControl(void)
 	else if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
 		count = 0;
 		Acount = 0;
-		gh = 1;
+		PlayerImg = 1;
 	}
 
 
@@ -88,13 +81,13 @@ void PlayerControl(void)
 	//•`‰æ
 	if (gPlayer.flg == true) {
 
-		DrawRotaGraph(gPlayer.x, gPlayer.y, 4.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+		DrawRotaGraph(gPlayer.x, gPlayer.y, 4.0f, 0, gPlayerImg[PlayerImg], TRUE, FALSE);
 
 	}else{
 
 		if (++CoolTime < 120) {
 			if (CoolTime % 40 < 20) {
-				DrawRotaGraph(gPlayer.x, gPlayer.y, 4.0f, 0, gPlayerImg[gh], TRUE, FALSE);
+				DrawRotaGraph(gPlayer.x, gPlayer.y, 4.0f, 0, gPlayerImg[PlayerImg], TRUE, FALSE);
 			}
 		}
 		else {
