@@ -1,6 +1,5 @@
-#ifndef RANKING_H
-#define RANKING_H
-#define RANKING_DATA 5
+#pragma once
+
 
 //\‘¢‘Ì
 struct RankingData{
@@ -10,6 +9,5 @@ struct RankingData{
 };
 
 //•Ï”éŒ¾
-extern struct RankingData		gRanking[RANKING_DATA];
 
-#endif
+extern struct RankingData		gRanking[RANKING_DATA];

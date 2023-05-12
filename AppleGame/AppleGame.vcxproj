@@ -153,10 +153,13 @@
   <ItemGroup>
     <ClInclude Include="apple.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="drawgame.h" />
+    <ClInclude Include="end.h" />
     <ClInclude Include="loadimages.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="prototype.h" />
     <ClInclude Include="ranking.h" />
+    <ClInclude Include="result.h" />
     <ClInclude Include="title.h" />
     <ClInclude Include="variable.h" />
   </ItemGroup>
@@ -170,7 +173,6 @@
     <ClCompile Include="hitbox.cpp" />
     <ClCompile Include="LoadImages.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Player_m.cpp" />
     <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="sound.cpp" />

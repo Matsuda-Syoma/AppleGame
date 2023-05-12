@@ -1,8 +1,6 @@
-#ifndef DEFINE_H
-#define DEFINE_H
+#pragma once
 
+#define GAMETIME 60			//ゲーム時間
+#define GAMETIMEFLAME 28	//タイマーが減るフレーム
 #define APPLE_MAX 10
-#define GAMETIME 60;	//ゲーム時間
-#define GAMETIMEFLAME 28;//タイマーが減るフレーム
-
-#endif
+#define RANKING_DATA 5

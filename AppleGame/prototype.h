@@ -1,5 +1,4 @@
-#ifndef PROTOTYPE_H
-#define PROTOTYPE_H
+#pragma once
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -30,4 +29,4 @@ void SortRanking(void);
 int SaveRanking(void);
 int ReadRanking(void);
 
-#endif
+int Random(void);

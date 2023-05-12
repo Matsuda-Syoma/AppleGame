@@ -4,10 +4,6 @@
 #include "define.h"
 #include "player.h"
 
-extern mode gGameMode;
-extern struct PLAYER gPlayer;
-
-//extern int gGameTime;
 void GameInit(void) {
 
 	//ƒAƒCƒeƒ€‚Ì‰Šúİ’è

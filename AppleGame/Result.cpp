@@ -1,11 +1,9 @@
 #include "DxLib.h"
-#include"prototype.h"
+#include "prototype.h"
 #include "variable.h"
 #include "define.h"
 #include "ranking.h"
-
-extern mode gGameMode;
-	int playSE = 0;
+#include "result.h"
 void DrawGameOver(void) {
 
 

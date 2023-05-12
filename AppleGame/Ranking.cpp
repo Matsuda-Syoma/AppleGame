@@ -1,11 +1,12 @@
+#include<string.h>
 #include "DxLib.h"
 #include "prototype.h"
 #include "variable.h"
 #include "ranking.h"
 
-#include<string.h>
-extern mode gGameMode;
+
 RankingData gRanking[RANKING_DATA];
+
 				  //12345678901234567890123456
 char MoziSmall[] = "abcdefghijklmnopqrstuvwxyz";
 char MoziBig[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

@@ -1,5 +1,4 @@
-#ifndef VARIABLE_H
-#define VARIABLE_H
+#pragma once
 
 #include "define.h"
 /*列挙型の宣言*/
@@ -36,6 +35,10 @@ struct APPLE {
 //	float speed;		//移動速度
 //};
 
+extern mode gGameMode;
+
+extern struct PLAYER gPlayer;
+
 extern int gScore;		//スコア
 extern int gGameTime;	//ゲーム時間表示
 extern int gAppleCount[4];
@@ -66,5 +69,3 @@ extern int gSEapple2;				//効果音りんご2(毒りんご)
 
 extern int rnd;
 extern struct APPLE gApple[APPLE_MAX];
-
-#endif
