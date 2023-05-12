@@ -1,15 +1,16 @@
 #include "DxLib.h"
-#include"prototype.h"
-#include "variable.h"
 #include "define.h"
-#include "ranking.h"
-
-extern mode gGameMode;
+#include "variable.h"
+#include "prototype.h"
+#include "result.h"
 
 void DrawGameOver(void) {
 
-	PlaySoundMem(gGameOverSE, DX_PLAYTYPE_BACK, false);
 
+	if(!playSE) {
+		PlaySoundMem(gGameOverSE, DX_PLAYTYPE_BACK, false);
+		playSE = 1;
+	}
 	DrawGraph(0, 0, gStageImg, false);
 
 	DrawBox(150, 120, SCREEN_WIDTH - 150, SCREEN_HEIGHT - 160, 0x000000, true);
@@ -23,6 +24,7 @@ void DrawGameOver(void) {
 	DrawFormatString(500, 480, 0x000000, "Score : %-6d", gScore);
 	if (gKeyFlg & PAD_INPUT_A) {
 		PlaySoundMem(gSEmenu2, DX_PLAYTYPE_BACK, true);
+
 		if (gRanking[RANKING_DATA - 1].score > gScore) {
 			gGameMode = RANKING; 
 		}
@@ -31,6 +33,6 @@ void DrawGameOver(void) {
 		gGameMode = INPUTNAME;
 		}
 
-
+		playSE = 0;
 	}
 }

@@ -2,12 +2,7 @@
 #include"variable.h"
 #include"prototype.h"
 #include"define.h"
-
-extern mode gGameMode;
-extern int gStageImg;
-
-int WaitTime = 0;
-
+#include"end.h"
 
 void DrawEnd(void) {
     //ƒGƒ“ƒh‰æ‘œ•\Ž¦

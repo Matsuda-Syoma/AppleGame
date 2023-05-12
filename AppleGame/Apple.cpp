@@ -1,27 +1,13 @@
-#include "DxLib.h"
-#include "apple.h"
-#include "prototype.h"
-#include "variable.h"
-#include "Player.h"
-#include "define.h"
 #include<stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "DxLib.h"
+#include "prototype.h"
+#include "variable.h"
+#include "define.h"
+#include "apple.h"
+#include "player.h"
 
-extern int gAppleImg[4];
-extern struct PLAYER gPlayer;
-
-struct APPLE gApple[APPLE_MAX];
-struct APPLE gApple00 = { true,0,0,0,10,110,110,0,1 };
-float gAppleSpeed[4] = { 1.0f,2.0f,3.5f,0.5f };
-int gAppleScore[4] = { 100,200,500,-750 };
-int AppleTime;		//りんごの生成タイミング
-int rnd;
-int OldAppleSpawn;
-int NewAppleSpawn;
-
-
-int Random(void);
 
 void AppleControl(void) {
 

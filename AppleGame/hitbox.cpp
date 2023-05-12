@@ -1,9 +1,8 @@
 #include "DxLib.h"
-#include "apple.h"
 #include "prototype.h"
-#include "player.h"
 #include "variable.h"
-/*自機と敵機の当たり判定（短形）*/
+#include "player.h"
+//自機と敵機の当たり判定(短形)
 int HitBoxPlayer(PLAYER* p, APPLE*e) {
 
 	//x,yは中心座標とする

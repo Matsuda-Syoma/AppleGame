@@ -1,13 +1,9 @@
 #include "DxLib.h"
-#include"prototype.h"
-#include "variable.h"
 #include "define.h"
+#include "variable.h"
+#include"prototype.h"
 #include "player.h"
 
-extern mode gGameMode;
-extern struct PLAYER gPlayer;
-
-//extern int gGameTime;
 void GameInit(void) {
 
 	//ƒAƒCƒeƒ€‚Ì‰Šúİ’è

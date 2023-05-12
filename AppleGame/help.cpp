@@ -3,8 +3,6 @@
 #include "variable.h"
 #include "define.h"
 
-extern mode gGameMode;
-
 void DrawHelp(void) {
 	
 	if (gKeyFlg & PAD_INPUT_A) {

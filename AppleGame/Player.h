@@ -1,6 +1,4 @@
-#ifndef PLAYER_H
-#define PLAYER_H
-#define PI    3.1415926535897932384626433832795f
+#pragma once
 
 //ç\ë¢ëÃ
 struct PLAYER {
@@ -8,5 +6,3 @@ struct PLAYER {
 	float x, y, w, h;
 	float speed;
 };
-
-#endif

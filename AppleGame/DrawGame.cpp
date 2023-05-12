@@ -2,12 +2,7 @@
 #include"prototype.h"
 #include "variable.h"
 #include "define.h"
-
-int gGameFlameCount;
-int gGameTime;
-int gScore;
-extern mode gGameMode;
-bool Pause;
+#include "drawgame.h"
 
 void DrawGame(void) {
 
