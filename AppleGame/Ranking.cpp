@@ -2,8 +2,19 @@
 #include "prototype.h"
 #include "variable.h"
 #include "ranking.h"
+
+#include<string.h>
 extern mode gGameMode;
 RankingData gRanking[RANKING_DATA];
+				  //12345678901234567890123456
+char MoziSmall[] = "abcdefghijklmnopqrstuvwxyz";
+char MoziBig[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char MoziNumber[] = "0123456789";
+
+int MoziSelectW;
+int MoziSelectH;
+char MoziFrame[11];
+char MoziWork[2];
 
 void DrawRanking(void)
 {
@@ -37,19 +48,103 @@ void InputName(void)
 	SetFontSize(40);
 
 	DrawString(150, 200, "ランキングに登録します", 0xffffff);
-	DrawString(150, 260, "名前を英字で入力してください", 0xffffff);
+
+	for (int i = 0; i < sizeof(MoziSmall); i++) {
+		DrawFormatString(150 + i * 40, 300, 0x000000, "%c", MoziSmall[i]);
+	}
+	for (int i = 0; i < sizeof(MoziBig); i++) {
+		DrawFormatString(150 + i * 40, 350, 0x000000, "%c", MoziBig[i]);
+	}
+	for (int i = 0; i < sizeof(MoziNumber); i++) {
+		DrawFormatString(150 + i * 40, 400, 0x000000, "%c", MoziNumber[i]);
+
+	}
+
+	DrawString(750, 555, "End", 0x000000);
+	DrawBox(460, 535, 690, 600, 0x000055, TRUE);
+	DrawFormatString(470, 545, 0xffffff, "%s", MoziFrame);
+
+	//右
+	if (gKeyFlg & PAD_INPUT_RIGHT) {
+		if (++MoziSelectW > sizeof(MoziSmall) - 2) {
+			MoziSelectW = 0;
+		}
+		if (MoziSelectH == 2 && MoziSelectW > sizeof(MoziNumber) - 2) {
+			MoziSelectW = 0;
+		}
+	}
+	//左
+	if (gKeyFlg & PAD_INPUT_LEFT) {
+		if (--MoziSelectW < 0) {
+			MoziSelectW = sizeof(MoziSmall) - 2;
+		}
+		if (MoziSelectH == 2 && MoziSelectW > sizeof(MoziNumber) - 2) {
+			MoziSelectW = sizeof(MoziNumber) - 2;
+		}
+	}
+	//上
+	if (gKeyFlg & PAD_INPUT_UP) {
+		if (--MoziSelectH < 0) {
+			MoziSelectH = 3;
+		}
+		if (MoziSelectH == 2 && MoziSelectW > sizeof(MoziNumber) - 2) {
+			MoziSelectW = sizeof(MoziNumber) - 2;
+		}
+	}
+	//下
+	if (gKeyFlg & PAD_INPUT_DOWN) {
+		if (++MoziSelectH > 3) {
+			MoziSelectH = 0;
+			}
+		if (MoziSelectH == 2 && MoziSelectW > sizeof(MoziNumber) - 2) {
+			MoziSelectW = sizeof(MoziNumber) - 2;
+		}
+	}
+
+	switch (MoziSelectH)
+	{
+	case 3:
+		DrawString(720, 555, ">", 0x000000);
+
+		if (gKeyFlg & PAD_INPUT_A) {
+			strcpy_s(gRanking[RANKING_DATA - 1].name , MoziFrame);
+			PlaySoundMem(gSEmenu2, DX_PLAYTYPE_BACK, true);
+			gRanking[RANKING_DATA - 1].score = gScore;	//ランキングデータにスコアを登録
+			SortRanking();						//ランキング並べ替え
+			SaveRanking();						//ランキングデータの保存
+			gGameMode = RANKING;				//ゲームモードの変更
+		}
+		break;
+	default:
+
+		SetFontSize(32);
+		DrawString(130 + MoziSelectW * 40, 305 + MoziSelectH * 50, ">", 0x000000);
+		if (gKeyFlg & PAD_INPUT_A && strlen(MoziFrame) < 10) {
+			if (MoziSelectH == 0) {
+				strncpy_s(MoziWork, &MoziSmall[MoziSelectW], 1);
+				strcat_s(MoziFrame, MoziWork);
+			}
+			if (MoziSelectH == 1) {
+				strncpy_s(MoziWork, &MoziBig[MoziSelectW], 1);
+				strcat_s(MoziFrame, MoziWork);
+			}
+			if (MoziSelectH == 2) {
+				strncpy_s(MoziWork, &MoziNumber[MoziSelectW], 1);
+				strcat_s(MoziFrame, MoziWork);
+			}
+		}
+		break;
+	}
+
+	if (gKeyFlg & PAD_INPUT_B) {
+		strncpy_s(MoziFrame, MoziFrame, strlen(MoziFrame) - 1);
+	}
 
 	//名前の入力
-	DrawString(140, 350, "> ", 0xFFFFFF);
-	DrawBox(160, 335, 390, 400, 0x000055, TRUE);
-	if (KeyInputSingleCharString(170, 350, 10, gRanking[RANKING_DATA - 1].name, FALSE)
-		== 1) {
-		PlaySoundMem(gSEmenu2, DX_PLAYTYPE_BACK, true);
-		gRanking[RANKING_DATA - 1].score = gScore;	//ランキングデータにスコアを登録
-		SortRanking();						//ランキング並べ替え
-		SaveRanking();						//ランキングデータの保存
-		gGameMode = RANKING;				//ゲームモードの変更
-	}
+	//if (KeyInputSingleCharString(170, 350, 10, gRanking[RANKING_DATA - 1].name, FALSE)
+	//	== 1) {
+
+	//}
 }
 
 

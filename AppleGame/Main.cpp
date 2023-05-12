@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-mode gGameMode = TITLE;
+mode gGameMode = TITLE;//title
 
 extern int gStageImg;
 extern int gAppleImg[4];
