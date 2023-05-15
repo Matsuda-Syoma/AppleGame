@@ -47,7 +47,7 @@ void DrawTitle(void) {
 
 	//タイトル、メニュー、カーソル画像の表示
 	DrawGraph(0, 0, gTitleImg, false);
-	DrawRotaGraph((225 * 2), 385 + menuNo * 70, 1.0f, 0, gAppleImg[0], true);
+	DrawRotaGraph((225 * 2), 385 + menuNo * 70, 0.25f, 0, gAppleImg[0], true);
 
 	for (int i = 0; i < 12; i++) {
 		if (TAnimApple[i].flg == false || gGameMode != TITLE) {
@@ -57,7 +57,7 @@ void DrawTitle(void) {
 
 		}
 		else {
-			DrawRotaGraph(TAnimApple[i].x, TAnimApple[i].y, 0.5f, 0, gAppleImg[0], true, false);
+			DrawRotaGraph(TAnimApple[i].x, TAnimApple[i].y, 0.125f, 0, gAppleImg[0], true, false);
 			TAnimApple[i].y += TAnimApple[i].speed;
 			if (TAnimApple[i].y > 1000) {
 				TAnimApple[i].flg = false;

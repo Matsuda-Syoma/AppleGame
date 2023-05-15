@@ -1,6 +1,7 @@
 #pragma once
 
 int playSE = 0;
+int RWaitTime = 0;
 
 extern struct RankingData {
 	int		no;
@@ -9,3 +10,4 @@ extern struct RankingData {
 };
 
 extern struct RankingData		gRanking[RANKING_DATA];
+

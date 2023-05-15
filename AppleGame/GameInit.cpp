@@ -26,6 +26,12 @@ void GameInit(void) {
 	OldAppleSpawn = 0;
 	gScore = 0;
 
+	RWaitTime = 0;
+	MoziSelectW = 0;
+	MoziSelectH = 0;
+
+	strcpy_s(MoziFrame, "");
+
 	SetSoundCurrentTime(0, gStageBGM);
 	SetSoundCurrentTime(0, gGameOverSE);
 

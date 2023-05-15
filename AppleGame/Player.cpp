@@ -39,14 +39,16 @@ void PlayerControl(void)
 
 
 
-	if (gPlayer.speed > -0.2f && gPlayer.speed < 0.2f) {
+	if (gPlayer.speed > -0.25f && gPlayer.speed < 0.25f) {
 
 		if (~gNowKey & PAD_INPUT_LEFT && ~gNowKey & PAD_INPUT_RIGHT) {
 
 			gPlayer.speed = 0.0f;
 		}
 	}
-
+	if (gNowKey & PAD_INPUT_LEFT && gNowKey & PAD_INPUT_RIGHT) {
+		gPlayer.speed /= 1.25f;
+	}
 	//animation
 
 	//‰E

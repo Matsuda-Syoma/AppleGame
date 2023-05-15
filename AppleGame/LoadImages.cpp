@@ -4,7 +4,7 @@
 #include "loadimages.h"
 
 int LoadImages(void) {
-	if (LoadDivGraph("Images/Apple.png", 4, 4, 1, 60, 60, gAppleImg) == -1)return -1;
+	if (LoadDivGraph("Images/apple.png", 4, 4, 1, 256, 256, gAppleImg) == -1)return -1;
 	if ((gStageImg = LoadGraph("Images/bg_mori.png")) == -1)return -1;
 	if ((gTitleImg = LoadGraph("Images/bg_title.png")) == -1)return -1;
 	if ((gHelpImg = LoadGraph("Images/help.png")) == -1)return -1;

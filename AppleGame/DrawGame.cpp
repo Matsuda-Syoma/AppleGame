@@ -6,8 +6,6 @@
 
 void DrawGame(void) {
 
-	PlaySoundMem(gStageBGM, DX_PLAYTYPE_LOOP, false);
-
 	DrawGraph(0, 0, gStageImg, false);
 
 	DrawBox(SCREEN_WIDTH - (140 * 2), 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ff80, true);
@@ -21,7 +19,7 @@ void DrawGame(void) {
 	DrawString(SCREEN_WIDTH - (120 * 2), (160 * 2), "å¬êî", 0x000000);
 	SetFontSize(32);
 	for (int i = 0; i < 4; i++) {
-		DrawRotaGraph(SCREEN_WIDTH - (100 * 2), 410 + 70 * i, 1.2f, 0, gAppleImg[i], true, false);
+		DrawRotaGraph(SCREEN_WIDTH - (100 * 2), 410 + 70 * i, 0.3f, 0, gAppleImg[i], true, false);
 		DrawFormatString(SCREEN_WIDTH - (60 * 2), 400 + 70 * i, 0x000000, "x%3d", gAppleCount[i]);
 	}
 
@@ -35,9 +33,12 @@ void DrawGame(void) {
 		SetFontSize(64);
 		DrawString(400, 300, "--É|Å[ÉYíÜ--", 0x0f0f0f);
 		SetFontSize(32);
+		StopSoundMem(gStageBGM);
 
 	}
 	else if (!Pause) {
+
+		PlaySoundMem(gStageBGM, DX_PLAYTYPE_LOOP, false);
 
 		if (gGameTime < 1) {
 			StopSoundMem(gStageBGM);
