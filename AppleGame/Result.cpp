@@ -17,7 +17,7 @@ void DrawGameOver(void) {
 	DrawBox(150 + 5, 120 + 5, SCREEN_WIDTH - 150 - 5, SCREEN_HEIGHT - 160 - 5, 0xffffff, true);
 
 	for (int i = 0; i < 4; i++) {
-		DrawRotaGraph(450, 185 + 70 * i, 1.2f, 0, gAppleImg[i], true, false);
+		DrawRotaGraph(450, 185 + 70 * i, 0.3f, 0, gAppleImg[i], true, false);
 		SetFontSize(40);
 		DrawFormatString(550, 180 + 70 * i, 0x000000, "x%3d = %5d", gAppleCount[i],gAppleCount[i]*gAppleScore[i]);
 	}

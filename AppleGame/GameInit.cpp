@@ -25,7 +25,10 @@ void GameInit(void) {
 	CoolTime = 0;
 	OldAppleSpawn = 0;
 	gScore = 0;
+
 	RWaitTime = 0;
+	MoziSelectW = 0;
+	MoziSelectH = 0;
 
 	strcpy_s(MoziFrame, "");
 

@@ -15,7 +15,7 @@ void AppleControl(void) {
 		if (gApple[i].flg == true) {
 
 			//‚è‚ñ‚²‚Ì•\Ž¦
-			DrawRotaGraph(gApple[i].x, gApple[i].y, 2.0f, 0, gApple[i].img, true, false);
+			DrawRotaGraph(gApple[i].x, gApple[i].y, 0.5f, 0, gApple[i].img, true, false);
 
 			if (gApple[i].flg == false) continue;
 
