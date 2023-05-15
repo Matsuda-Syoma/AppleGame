@@ -64,3 +64,5 @@ extern int rnd;
 
 extern char MoziFrame[11];
 extern int RWaitTime;
+extern int MoziSelectW;
+extern int MoziSelectH;
