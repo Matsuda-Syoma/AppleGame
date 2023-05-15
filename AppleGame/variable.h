@@ -61,3 +61,6 @@ extern int gSEapple1;				//Œø‰Ê‰¹‚è‚ñ‚²1(’Êí‚è‚ñ‚²)
 extern int gSEapple2;				//Œø‰Ê‰¹‚è‚ñ‚²2(“Å‚è‚ñ‚²)
 
 extern int rnd;
+
+extern char MoziFrame[11];
+extern int RWaitTime;

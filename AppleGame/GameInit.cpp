@@ -25,6 +25,9 @@ void GameInit(void) {
 	CoolTime = 0;
 	OldAppleSpawn = 0;
 	gScore = 0;
+	RWaitTime = 0;
+
+	strcpy_s(MoziFrame, "");
 
 	SetSoundCurrentTime(0, gStageBGM);
 	SetSoundCurrentTime(0, gGameOverSE);

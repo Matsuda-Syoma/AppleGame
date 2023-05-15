@@ -22,7 +22,7 @@ void DrawGameOver(void) {
 		DrawFormatString(550, 180 + 70 * i, 0x000000, "x%3d = %5d", gAppleCount[i],gAppleCount[i]*gAppleScore[i]);
 	}
 	DrawFormatString(500, 480, 0x000000, "Score : %-6d", gScore);
-	if (gKeyFlg & PAD_INPUT_A) {
+	if (++RWaitTime > 180) {
 		PlaySoundMem(gSEmenu2, DX_PLAYTYPE_BACK, true);
 
 		if (gRanking[RANKING_DATA - 1].score > gScore) {
