@@ -31,5 +31,15 @@ int LoadSound(void)
 	//å¯â âπÇËÇÒÇ≤ÇQ(ì≈ÇËÇÒÇ≤)ÇÃì«çû
 	if ((gSEapple2 = LoadSoundMem("sounds/dokuringo_get2.wav")) == -1) return -1;
 
+	ChangeVolumeSoundMem(SOUND_VOLUME,gTitleBGM);
+	ChangeVolumeSoundMem(SOUND_VOLUME, gStageBGM);
+	ChangeVolumeSoundMem(SOUND_VOLUME, gGameOverSE);
+	for (int i = 0; i < 4; i++) {
+		ChangeVolumeSoundMem(SOUND_VOLUME, gSEmenu1[i]);
+	}
+	ChangeVolumeSoundMem(SOUND_VOLUME, gSEmenu2);
+	ChangeVolumeSoundMem(SOUND_VOLUME, gSEapple1);
+	ChangeVolumeSoundMem(SOUND_VOLUME, gSEapple2);
+
 	return 0;
 }
