@@ -108,12 +108,14 @@ void InputName(void)
 		DrawString(720, 555, ">", 0x000000);
 
 		if (gKeyFlg & PAD_INPUT_A) {
+			if (strcmp(MoziFrame," ") != -1) {
 			strcpy_s(gRanking[RANKING_DATA - 1].name , MoziFrame);
 			PlaySoundMem(gSEmenu2, DX_PLAYTYPE_BACK, true);
 			gRanking[RANKING_DATA - 1].score = gScore;	//ランキングデータにスコアを登録
 			SortRanking();						//ランキング並べ替え
 			SaveRanking();						//ランキングデータの保存
 			gGameMode = RANKING;				//ゲームモードの変更
+			}
 		}
 		break;
 	default:
