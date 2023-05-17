@@ -22,6 +22,12 @@ int Back = 0;
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow) {
 
+	LONGLONG nowTime = GetNowHiPerformanceCount();
+	LONGLONG oldTime = nowTime;
+	LONGLONG fpsCheckTime;
+	int fpsCounter = 0;
+	int fps = 0;
+
 	//タイトルを設定
 	SetMainWindowText("AppleGame");
 
@@ -41,12 +47,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	//画像読み込み関数の呼び出し
 	if (LoadImages() == -1)return -1;
-	if (LoadSound() == -1)return -1;
+	//if (LoadSound() == -1)return -1;
 
 	//ランキングデータの読込
 	if (ReadRanking() == -1) return -1;
 
 	srand((unsigned)time(NULL));
+
+	//ループ前にFPS計測を初期化
+	fpsCheckTime = GetNowHiPerformanceCount();
+	fps = 0;
+	fpsCounter = 0;
 
 	//ゲームループ
 	while (ProcessMessage() == 0 && gGameMode != CLOSE && Back!=1) {
@@ -96,8 +107,24 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		WaitTimer(16);
 
+		DrawFormatString(390, 5, 0xffffff, "FPS:%3d", fps);
+
+
 		//裏画面の内容を表に表示する
 		ScreenFlip();
+
+		//1ループ時点のシステム時間を取得
+		oldTime = nowTime;
+		nowTime = GetNowHiPerformanceCount();
+
+		//1ループの時間経過を求める
+
+		fpsCounter++;
+		if (nowTime - fpsCheckTime > 1000000) {
+			fps = fpsCounter;
+			fpsCounter = 0;
+			fpsCheckTime = nowTime;
+		}
 
 		//強制終
 		if (gNowKey == PAD_INPUT_L) {
