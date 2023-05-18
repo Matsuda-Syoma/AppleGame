@@ -9,10 +9,6 @@
 
 mode gGameMode = TITLE;//title
 
-int gOldKey;
-int gNowKey;
-int gKeyFlg;
-
 extern int gPlayerImg[12];
 
 int gAppleCount[4];

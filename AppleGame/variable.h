@@ -44,9 +44,9 @@ extern int gHelpImg;
 extern int gRankingImg;
 extern int gEndImg;
 
-extern int gOldKey;		//前回の入力キー
-extern int gNowKey;		//今回の入力キー
-extern int gKeyFlg;		//入力キー情報
+static int gOldKey;		//前回の入力キー
+static int gNowKey;		//今回の入力キー
+static int gKeyFlg;		//入力キー情報
 
 extern 	int CoolTime;
 extern int OldAppleSpawn;
