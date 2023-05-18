@@ -17,8 +17,8 @@ int HitBoxPlayer(PLAYER* p, APPLE*e) {
 	int dy2 = dy1 + e->h;
 
 	//デバッグ用処理
-	DrawBox(dx1, dy1, dx2, dy2, 0x000000, false);
-	DrawBox(sx1, sy1, sx2, sy2, 0xffffff, true);
+	//DrawBox(dx1, dy1, dx2, dy2, 0x000000, false);
+	//DrawBox(sx1, sy1, sx2, sy2, 0xffffff, true);
 
 	if (sx1 < dx2 && dx1 < sx2 && sy1 < dy2 && dy1 < sy2) {
 		return true;

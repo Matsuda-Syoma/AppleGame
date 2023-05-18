@@ -10,6 +10,8 @@ void DrawGame(void) {
 
 	DrawBox(SCREEN_WIDTH - (140 * 2), 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0x00ff80, true);
 
+	SetFontSize(32);
+
 	DrawFormatString(SCREEN_WIDTH - (120 * 2), 80, 0x000000, "Time:%-3d", gGameTime);
 
 	DrawFormatString(SCREEN_WIDTH - (120 * 2), 160, 0x000000, "Score:%-6d", gScore);
