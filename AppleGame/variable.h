@@ -23,6 +23,12 @@ struct APPLE {
 	float x, y, w, h;	//座標、幅、高さ
 	float speed;		//移動速度
 	int score;		//スコア
+	int lane;		//レーン
+};
+struct Lane {
+
+	int type[7][4];
+
 };
 
 

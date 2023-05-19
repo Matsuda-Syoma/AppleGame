@@ -24,6 +24,7 @@ void AppleControl(void) {
 
 			//‰æ–Ê‚ð‚Í‚Ýo‚µ‚½‚çÁ‹Ž
 			if (gApple[i].y > 1000) {
+				ALane.type[gApple[i].lane][gApple[i].type] = 0;
 				gApple[i].flg = false;
 			}
 
@@ -38,6 +39,7 @@ void AppleControl(void) {
 				}
 				gAppleCount[gApple[i].type] ++;
 				gScore += gAppleScore[gApple[i].type];
+				ALane.type[gApple[i].lane][gApple[i].type] = 0;
 				gApple[i].flg = false;
 				if (gScore < 0) {
 					gScore = 0;
@@ -49,28 +51,34 @@ void AppleControl(void) {
 	}
 	if (++AppleTime > 25) {
 
-		NewAppleSpawn = GetRand(6);
-
-		if (OldAppleSpawn != NewAppleSpawn) {
 
 			CreateApple();
-			OldAppleSpawn = NewAppleSpawn;
-
-		}
+		
 			AppleTime = 0;
 	}
 }
 
 int CreateApple(void) {
 
+	NewAppleSpawn = GetRand(6);
+
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == false) {
 			gApple[i] = gApple00;
 			gApple[i].type = Random();
+			rndap = gApple[i].type;
+			if (ALane.type[NewAppleSpawn][gApple[i].type] == 1) {
+				gApple[i].flg = false;
+				break;
+				return false;
+			}
+
 			gApple[i].img = gAppleImg[gApple[i].type];
 			gApple[i].x = NewAppleSpawn * 140 + 80;
 			gApple[i].speed = gAppleSpeed[gApple[i].type];
 			gApple[i].score = gAppleScore[gApple[i].type];
+			gApple[i].lane = NewAppleSpawn;
+			ALane.type[NewAppleSpawn][gApple[i].type] = 1;
 			//“Å‚è‚ñ‚²‚ÌŽž‚Í”»’è‚ð0.9”{‚É‚·‚é
 			if (gApple[i].type == 3) {
 				gApple[i].w = gApple[i].w * 0.9f;
