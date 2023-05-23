@@ -30,6 +30,21 @@ void DrawGame(void) {
 		Pause = !Pause;
 
 	}
+
+	//ゲームメイン処理
+
+	PlaySoundMem(gStageBGM, DX_PLAYTYPE_LOOP, false);
+
+	if (gGameTime < 1) {
+		StopSoundMem(gStageBGM);
+		gGameMode = GAMEOVER;
+	}
+
+	AppleControl(&Pause);
+
+	//プレイヤー制御
+	PlayerControl(&Pause);
+
 	if (Pause) {
 
 		SetFontSize(64);
@@ -39,18 +54,6 @@ void DrawGame(void) {
 
 	}
 	else if (!Pause) {
-
-		PlaySoundMem(gStageBGM, DX_PLAYTYPE_LOOP, false);
-
-		if (gGameTime < 1) {
-			StopSoundMem(gStageBGM);
-			gGameMode = GAMEOVER;
-		}
-
-		AppleControl();
-
-		//プレイヤー制御
-		PlayerControl();
 
 		if (++gGameFlameCount > 28) {
 			gGameTime--;

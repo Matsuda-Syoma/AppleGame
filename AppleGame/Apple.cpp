@@ -9,47 +9,46 @@
 #include "player.h"
 
 
-void AppleControl(void) {
+void AppleControl(bool *Pause) {
 
 	for (int i = 0; i < APPLE_MAX; i++) {
 		if (gApple[i].flg == true) {
 
 			//‚è‚ñ‚²‚Ì•\Ž¦
 			DrawRotaGraph(gApple[i].x, gApple[i].y, 0.5f, 0, gApple[i].img, true, false);
+			if (!*Pause) {
 
-			if (gApple[i].flg == false) continue;
+				//‚Ü‚Á‚·‚®‰º‚ÉˆÚ“®
+				gApple[i].y += gApple[i].speed;
 
-			//‚Ü‚Á‚·‚®‰º‚ÉˆÚ“®
-			gApple[i].y += gApple[i].speed;
+				//‰æ–Ê‚ð‚Í‚Ýo‚µ‚½‚çÁ‹Ž
+				if (gApple[i].y > 1000) {
+					ALane.type[gApple[i].lane][gApple[i].type] = 0;
+					gApple[i].flg = false;
+				}
 
-			//‰æ–Ê‚ð‚Í‚Ýo‚µ‚½‚çÁ‹Ž
-			if (gApple[i].y > 1000) {
-				ALane.type[gApple[i].lane][gApple[i].type] = 0;
-				gApple[i].flg = false;
+				////“–‚½‚è”»’è
+				if (HitBoxPlayer(&gPlayer, &gApple[i]) == true && gPlayer.flg == true) {
+					if (gApple[i].type == 3) {
+						PlaySoundMem(gSEapple2, DX_PLAYTYPE_BACK, true);
+						gPlayer.flg = false;
+					}
+					else {
+						PlaySoundMem(gSEapple1, DX_PLAYTYPE_BACK, true);
+					}
+					gAppleCount[gApple[i].type] ++;
+					gScore += gAppleScore[gApple[i].type];
+					ALane.type[gApple[i].lane][gApple[i].type] = 0;
+					gApple[i].flg = false;
+					if (gScore < 0) {
+						gScore = 0;
+					}
+				}
+
 			}
-
-			////“–‚½‚è”»’è
-			if (HitBoxPlayer(&gPlayer, &gApple[i]) == true &&gPlayer.flg == true) {
-				if (gApple[i].type == 3) {
-					PlaySoundMem(gSEapple2, DX_PLAYTYPE_BACK, true);
-					gPlayer.flg = false;
-				}
-				else {
-					PlaySoundMem(gSEapple1, DX_PLAYTYPE_BACK, true);
-				}
-				gAppleCount[gApple[i].type] ++;
-				gScore += gAppleScore[gApple[i].type];
-				ALane.type[gApple[i].lane][gApple[i].type] = 0;
-				gApple[i].flg = false;
-				if (gScore < 0) {
-					gScore = 0;
-				}
-			}
-
-
 		}
 	}
-	if (++AppleTime > 25) {
+	if (!*Pause && ++AppleTime > 25) {
 
 
 			CreateApple();

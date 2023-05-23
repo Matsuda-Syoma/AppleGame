@@ -10,12 +10,13 @@ int Acount;
 int key[256];
 int PlayerImg = 1;
 int CoolTime;
+extern int gPlayerImg[12];
 
 struct PLAYER gPlayer;
 
-void PlayerControl(void)
+void PlayerControl(bool* Pause)
 {
-	extern int gPlayerImg[12];
+	if(!*Pause) {
 
 	gPlayer.x += gPlayer.speed;
 
@@ -64,7 +65,7 @@ void PlayerControl(void)
 	else if (gPlayer.speed < -0.2f) {
 		PlayerImg = count % 3 + 5;
 		if (++Acount > 24 / (gPlayer.speed * -1)) {
-			-- count;
+			--count;
 			Acount = 0;
 		}
 	}
@@ -79,7 +80,7 @@ void PlayerControl(void)
 	//âÊñ ÇÇÕÇ›èoÇ≥Ç»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
 	if (gPlayer.x < 48)gPlayer.x = 48;
 	if (gPlayer.x > SCREEN_WIDTH - 280 - 48)gPlayer.x = SCREEN_WIDTH - 280 - 48;
-
+}
 	//ï`âÊ
 	if (gPlayer.flg == true) {
 

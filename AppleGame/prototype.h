@@ -9,14 +9,13 @@ extern struct APPLE;
 
 int LoadImages(void);
 
-void AppleControl(void);
-void PlayerControl(void);
+void AppleControl(bool *Pause);
+void PlayerControl(bool *Pause);
 int CreateApple(void);
 int LoadImages(void);
 void GameInit(void);
 void DrawGame(void);
 int HitBoxPlayer(PLAYER* p, APPLE* e);
-void PlayerControl(void);
 void DrawTitle(void);
 void DrawHelp(void);
 void DrawEnd(void);
