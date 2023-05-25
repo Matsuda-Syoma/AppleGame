@@ -44,7 +44,6 @@ void AppleControl(bool *Pause) {
 						gScore = 0;
 					}
 				}
-
 			}
 		}
 	}

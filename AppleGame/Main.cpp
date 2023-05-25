@@ -47,7 +47,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	//画像読み込み関数の呼び出し
 	if (LoadImages() == -1)return -1;
-	if (LoadSound() == -1)return 0;
+	if (LoadSound() == -1)return -1;
 
 	//ランキングデータの読込
 	if (ReadRanking() == -1) return -1;
