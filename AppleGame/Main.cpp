@@ -40,17 +40,20 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SetWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	//DXライブラリの初期化処理
-	if (DxLib_Init() == -1)return -1;
-
+	if (DxLib_Init() == -1) {
+		return -1;
+	}
 	//描画先画面を裏にする（ダブルバッファリング）
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	//画像読み込み関数の呼び出し
-	if (LoadImages() == -1)return -1;
-	if (LoadSound() == -1)return -1;
+	LoadImages();
+
+	LoadSound();
 
 	//ランキングデータの読込
-	if (ReadRanking() == -1) return -1;
+	if (ReadRanking() == -1) {
+		return -1;
+	}
 
 	srand((unsigned)time(NULL));
 

@@ -25,6 +25,7 @@ struct APPLE {
 	int score;		//スコア
 	int lane;		//レーン
 };
+
 struct Lane {
 
 	int type[7][4];

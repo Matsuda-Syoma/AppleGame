@@ -82,15 +82,15 @@ void PlayerControl(bool* Pause)
 	if (gPlayer.x > SCREEN_WIDTH - 280 - 48)gPlayer.x = SCREEN_WIDTH - 280 - 48;
 }
 	//•`‰æ
-	if (gPlayer.flg == true) {
+	if (gPlayer.flg == 1) {
 
-		DrawRotaGraph(gPlayer.x, gPlayer.y, 4.0f, 0, gPlayerImg[PlayerImg], TRUE, FALSE);
+		DrawRotaGraph((float)gPlayer.x, (float)gPlayer.y, 4.0f, 0, gPlayerImg[PlayerImg], TRUE, FALSE);
 
 	}else{
 
 		if (++CoolTime < 120) {
 			if (CoolTime % 40 < 20) {
-				DrawRotaGraph(gPlayer.x, gPlayer.y, 4.0f, 0, gPlayerImg[PlayerImg], TRUE, FALSE);
+				DrawRotaGraph((float)gPlayer.x, (float)gPlayer.y, 4.0f, 0, gPlayerImg[PlayerImg], TRUE, FALSE);
 			}
 		}
 		else {

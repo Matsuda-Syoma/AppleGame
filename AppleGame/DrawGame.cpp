@@ -53,8 +53,10 @@ void DrawGame(void) {
 
 		}
 	}
+
 	if (gGameTime < 1) {
 		StopSoundMem(gStageBGM);
 		gGameMode = GAMEOVER;
 	}
+
 }

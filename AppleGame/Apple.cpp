@@ -12,10 +12,10 @@
 void AppleControl(bool *Pause) {
 
 	for (int i = 0; i < APPLE_MAX; i++) {
-		if (gApple[i].flg == true) {
+		if (gApple[i].flg == 1) {
 
 			//‚è‚ñ‚²‚Ì•\Ž¦
-			DrawRotaGraph(gApple[i].x, gApple[i].y, 0.5f, 0, gApple[i].img, true, false);
+			DrawRotaGraph((float)gApple[i].x, (float)gApple[i].y, 0.5f, 0, gApple[i].img, true, false);
 			if (!*Pause) {
 
 				//‚Ü‚Á‚·‚®‰º‚ÉˆÚ“®
@@ -28,7 +28,7 @@ void AppleControl(bool *Pause) {
 				}
 
 				////“–‚½‚è”»’è
-				if (HitBoxPlayer(&gPlayer, &gApple[i]) == true && gPlayer.flg == true) {
+				if (HitBoxPlayer(&gPlayer, &gApple[i]) == 1 && gPlayer.flg == 1) {
 					if (gApple[i].type == 3) {
 						PlaySoundMem(gSEapple2, DX_PLAYTYPE_BACK, true);
 						gPlayer.flg = false;
@@ -72,7 +72,7 @@ int CreateApple(void) {
 			}
 
 			gApple[i].img = gAppleImg[gApple[i].type];
-			gApple[i].x = NewAppleSpawn * 140 + 80;
+			gApple[i].x = (float)NewAppleSpawn * 140 + 80;
 			gApple[i].speed = gAppleSpeed[gApple[i].type];
 			gApple[i].score = gAppleScore[gApple[i].type];
 			gApple[i].lane = NewAppleSpawn;

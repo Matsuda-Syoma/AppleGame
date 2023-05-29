@@ -6,15 +6,15 @@
 int HitBoxPlayer(PLAYER* p, APPLE*e) {
 
 	//x,yは中心座標とする
-	int sx1 = p->x - (p->w / 2);
-	int sy1 = p->y - (p->h / 2);
-	int sx2 = sx1 + p->w;
-	int sy2 = sy1 + p->h;
+	float sx1 = p->x - (p->w / 2);
+	float sy1 = p->y - (p->h / 2);
+	float sx2 = sx1 + p->w;
+	float sy2 = sy1 + p->h;
 
-	int dx1 = e->x - (e->w / 2);
-	int dy1 = e->y - (e->h / 2);
-	int dx2 = dx1 + e->w;
-	int dy2 = dy1 + e->h;
+	float dx1 = e->x - (e->w / 2);
+	float dy1 = e->y - (e->h / 2);
+	float dx2 = dx1 + e->w;
+	float dy2 = dy1 + e->h;
 
 	//デバッグ用処理
 	//DrawBox(dx1, dy1, dx2, dy2, 0x000000, false);

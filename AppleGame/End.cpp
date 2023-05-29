@@ -11,6 +11,10 @@ void DrawEnd(void) {
     StopSoundMem(gTitleBGM);
 
     //ƒ^ƒCƒ€‰ÁŽZˆ—•I—¹(‚R•b)
-    if (++WaitTime > 300)gGameMode=CLOSE;
+    if (++WaitTime > 300) {
+
+    gGameMode = CLOSE;
+
+    }
 
 }
